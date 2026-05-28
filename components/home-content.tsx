@@ -82,12 +82,12 @@ export function HomeContent() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map(({ icon: Icon, titleKey, descKey }) => (
             <Card key={titleKey} className="hover:shadow-md transition-shadow">
-              <CardContent className="flex items-start gap-4 p-5">
+              <CardContent className="flex items-start gap-4">
                 <div className="rounded-lg bg-primary/10 p-3 shrink-0">
                   <Icon className="size-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">{t(`home.${titleKey}`)}</h3>
+                  <h3 className="font-semibold mb-1 text-base">{t(`home.${titleKey}`)}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {t(`home.${descKey}`)}
                   </p>

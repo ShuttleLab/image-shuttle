@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Shield, UserCheck, Code, Zap, Mail } from "lucide-react";
+import { Shield, UserCheck, Code, Zap, Mail, Heart, Share2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { AboutFaq } from "@/components/AboutFaq";
 import { aboutFaqData } from "@/components/AboutFaqData";
@@ -107,14 +107,14 @@ export default async function AboutPage({ params }: Props) {
         <section className="mb-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {safeFeatures.map(({ icon: Icon, title, desc }) => (
-              <Card key={title}>
-                <CardContent className="flex items-start gap-4 p-5">
+              <Card key={title} className="hover:shadow-md transition-shadow">
+                <CardContent className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-3 shrink-0">
                     <Icon className="size-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{title}</h3>
-                    <p className="text-sm text-muted-foreground">{desc}</p>
+                    <h3 className="font-semibold mb-1 text-base">{title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -122,7 +122,7 @@ export default async function AboutPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Inspired By */}
+        {/* Inspired By (subtle) */}
         <section className="mb-16 p-6 bg-muted rounded-lg">
           <h3 className="font-semibold mb-2">{t("inspiredBy")}</h3>
           <p className="text-sm text-muted-foreground">
@@ -133,6 +133,32 @@ export default async function AboutPage({ params }: Props) {
         {/* AboutFaq */}
         <section className="mb-16">
           <AboutFaq />
+        </section>
+
+        {/* Support — "与君初相识，犹如故人归" gradient CTA */}
+        <section className="mb-16">
+          <div className="bg-gradient-to-r from-primary via-primary to-chart-5 text-primary-foreground rounded-2xl p-8 sm:p-10 shadow-xl">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="size-14 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                <Heart className="size-7" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold leading-tight">
+                {t("supportTitle")}
+              </h2>
+            </div>
+            <p className="mb-8 opacity-90 text-base sm:text-lg leading-relaxed">
+              {t("supportDesc")}
+            </p>
+            <a
+              href="https://image.shuttlelab.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 transition-colors px-5 py-2.5 rounded-lg text-sm font-medium"
+            >
+              <Share2 className="size-4" />
+              {t("supportShare")}
+            </a>
+          </div>
         </section>
 
         {/* Contact */}
