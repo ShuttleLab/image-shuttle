@@ -84,6 +84,8 @@
     "width": "Width",
     "height": "Height",
     "maintainAspect": "Maintain aspect ratio",
+    "placeholderMaxWidth": "Max width",
+    "placeholderMaxHeight": "Max height",
     "presetHigh": "High Quality",
     "presetBalanced": "Balanced",
     "presetSmall": "Maximum Compression",

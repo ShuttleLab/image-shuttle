@@ -70,8 +70,8 @@ export function ImagePreview({
                   style={{ objectFit: "contain" }}
                 />
               }
-              className="max-h-[400px]"
-              style={{ width: "100%", height: "400px" }}
+              className="h-[250px] sm:h-[350px] lg:h-[400px]"
+              style={{ width: "100%" }}
             />
 
             {/* Labels */}
