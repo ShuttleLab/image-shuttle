@@ -123,6 +123,129 @@
   --sidebar-ring: oklch(0.48 0.22 264);
 }
 
+/* ============================================================
+   Color palettes (orthogonal to light/dark mode)
+   Applied via <html data-palette="..."> by ThemeProvider.
+   Each palette only overrides chromatic identity tokens
+   (primary / accent / ring / sidebar accents) so neutral
+   surfaces and text keep their tuned contrast.
+
+   Source-order matters: light palette blocks come first,
+   dark palette blocks (.dark[data-palette], higher
+   specificity) come after so they win in dark mode.
+   The default purple palette needs no block (it's the base).
+   ============================================================ */
+
+/* --- Sakura 樱花粉 (hue 350) --- */
+[data-palette="sakura"] {
+  --primary: oklch(0.55 0.19 350);
+  --accent: oklch(0.94 0.04 350);
+  --accent-foreground: oklch(0.32 0.05 350);
+  --ring: oklch(0.55 0.19 350);
+  --sidebar-primary: oklch(0.55 0.19 350);
+  --sidebar-accent: oklch(0.94 0.035 350);
+  --sidebar-accent-foreground: oklch(0.32 0.04 350);
+  --sidebar-ring: oklch(0.55 0.19 350);
+}
+.dark[data-palette="sakura"] {
+  --primary: oklch(0.74 0.15 350);
+  --accent: oklch(0.34 0.08 350);
+  --accent-foreground: oklch(0.96 0 0);
+  --ring: oklch(0.74 0.15 350);
+  --sidebar-primary: oklch(0.74 0.15 350);
+  --sidebar-accent: oklch(0.32 0.07 350);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-ring: oklch(0.74 0.15 350);
+}
+
+/* --- Mint 薄荷绿 (hue 165) --- */
+[data-palette="mint"] {
+  --primary: oklch(0.52 0.12 165);
+  --accent: oklch(0.93 0.05 165);
+  --accent-foreground: oklch(0.3 0.05 165);
+  --ring: oklch(0.52 0.12 165);
+  --sidebar-primary: oklch(0.52 0.12 165);
+  --sidebar-accent: oklch(0.93 0.045 165);
+  --sidebar-accent-foreground: oklch(0.3 0.04 165);
+  --sidebar-ring: oklch(0.52 0.12 165);
+}
+.dark[data-palette="mint"] {
+  --primary: oklch(0.74 0.13 165);
+  --accent: oklch(0.32 0.06 165);
+  --accent-foreground: oklch(0.96 0 0);
+  --ring: oklch(0.74 0.13 165);
+  --sidebar-primary: oklch(0.74 0.13 165);
+  --sidebar-accent: oklch(0.3 0.05 165);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-ring: oklch(0.74 0.13 165);
+}
+
+/* --- Ocean 海洋蓝 (hue 230) --- */
+[data-palette="ocean"] {
+  --primary: oklch(0.52 0.16 230);
+  --accent: oklch(0.93 0.05 230);
+  --accent-foreground: oklch(0.3 0.05 230);
+  --ring: oklch(0.52 0.16 230);
+  --sidebar-primary: oklch(0.52 0.16 230);
+  --sidebar-accent: oklch(0.93 0.045 230);
+  --sidebar-accent-foreground: oklch(0.3 0.04 230);
+  --sidebar-ring: oklch(0.52 0.16 230);
+}
+.dark[data-palette="ocean"] {
+  --primary: oklch(0.74 0.14 230);
+  --accent: oklch(0.32 0.07 230);
+  --accent-foreground: oklch(0.96 0 0);
+  --ring: oklch(0.74 0.14 230);
+  --sidebar-primary: oklch(0.74 0.14 230);
+  --sidebar-accent: oklch(0.3 0.06 230);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-ring: oklch(0.74 0.14 230);
+}
+
+/* --- Sunset 暖阳橙 (hue 55) --- */
+[data-palette="sunset"] {
+  --primary: oklch(0.62 0.15 55);
+  --accent: oklch(0.93 0.06 65);
+  --accent-foreground: oklch(0.35 0.06 55);
+  --ring: oklch(0.62 0.15 55);
+  --sidebar-primary: oklch(0.62 0.15 55);
+  --sidebar-accent: oklch(0.93 0.055 65);
+  --sidebar-accent-foreground: oklch(0.35 0.05 55);
+  --sidebar-ring: oklch(0.62 0.15 55);
+}
+.dark[data-palette="sunset"] {
+  --primary: oklch(0.76 0.14 60);
+  --accent: oklch(0.34 0.06 60);
+  --accent-foreground: oklch(0.96 0 0);
+  --ring: oklch(0.76 0.14 60);
+  --sidebar-primary: oklch(0.76 0.14 60);
+  --sidebar-accent: oklch(0.32 0.05 60);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-ring: oklch(0.76 0.14 60);
+}
+
+/* --- Graphite 石墨灰 (neutral, low chroma) --- */
+[data-palette="graphite"] {
+  --primary: oklch(0.42 0.015 264);
+  --accent: oklch(0.93 0.006 264);
+  --accent-foreground: oklch(0.3 0.01 264);
+  --ring: oklch(0.42 0.015 264);
+  --sidebar-primary: oklch(0.42 0.015 264);
+  --sidebar-accent: oklch(0.93 0.006 264);
+  --sidebar-accent-foreground: oklch(0.3 0.01 264);
+  --sidebar-ring: oklch(0.42 0.015 264);
+}
+.dark[data-palette="graphite"] {
+  --primary: oklch(0.74 0.015 264);
+  --accent: oklch(0.32 0.012 264);
+  --accent-foreground: oklch(0.96 0 0);
+  --ring: oklch(0.74 0.015 264);
+  --sidebar-primary: oklch(0.74 0.015 264);
+  --sidebar-accent: oklch(0.3 0.012 264);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-ring: oklch(0.74 0.015 264);
+}
+
 .dark {
   --background: oklch(0.16 0.02 264);
   --foreground: oklch(0.95 0.01 264);
