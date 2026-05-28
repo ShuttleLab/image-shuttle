@@ -40,7 +40,7 @@ const structuredData = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://image.shuttlelab.org"),
+  metadataBase: new URL("https://image.shuttlelab.org/"),
   title: "Image Shuttle | Free Online Image Compressor",
   description:
     "Compress and convert images directly in your browser. No uploads, no server — 100% private. Supports JPEG, PNG, WebP, AVIF.",

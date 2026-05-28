@@ -24,18 +24,25 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
 
+  const baseUrl = "https://image.shuttlelab.org";
   const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, l === routing.defaultLocale ? "/" : `/${l}`]),
+    routing.locales.map((l) => [
+      l,
+      l === routing.defaultLocale ? `${baseUrl}/` : `${baseUrl}/${l}`,
+    ]),
   );
 
   return {
     title: t("title"),
     description: t("subtitle"),
     alternates: {
-      canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
+      canonical:
+        locale === routing.defaultLocale
+          ? `${baseUrl}/`
+          : `${baseUrl}/${locale}`,
       languages: {
         ...languages,
-        "x-default": "/",
+        "x-default": `${baseUrl}/`,
       },
     },
     openGraph: {
