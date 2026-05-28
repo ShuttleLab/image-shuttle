@@ -28,7 +28,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="flex items-center gap-2 flex-wrap justify-center">
-            <span className="text-muted-foreground/70">{t("common.alsoFrom")}:</span>
+            <span className="text-muted-foreground">{t("common.alsoFrom")}:</span>
             <a
               href="https://note.shuttlelab.org"
               rel="noopener"
@@ -36,7 +36,7 @@ export default function Footer() {
             >
               Note Shuttle
             </a>
-            <span className="text-muted-foreground/40 text-xs">
+            <span className="text-muted-foreground text-xs">
               {t("common.alsoFromNote")}
             </span>
           </p>
