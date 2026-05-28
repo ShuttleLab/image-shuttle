@@ -1,68 +1,11 @@
 type Bilingual = { zh: string; en: string };
 type HowTo = { id: string; name: Bilingual; steps: Bilingual[] };
 type FaqItem = { q: Bilingual; a: Bilingual };
-type Persona = {
-  name: Bilingual;
-  role: Bilingual;
-  pain: Bilingual;
-  solution: Bilingual;
-};
 type UseCase = {
   scenario: Bilingual;
   before: Bilingual;
   after: Bilingual;
 };
-
-export const PERSONAS: Persona[] = [
-  {
-    name: { zh: "前端工程师 Sam", en: "Sam, Frontend Engineer" },
-    role: { zh: "负责 Web 性能优化", en: "Owns site performance" },
-    pain: {
-      zh: "上传图片到第三方压缩工具有合规审查负担，且批量处理受限",
-      en: "Third-party uploaders trigger compliance reviews, and batch processing is limited",
-    },
-    solution: {
-      zh: "在本地浏览器压缩，无文件外泄，支持无限批量处理",
-      en: "Browser-local processing — files never leave the device, with unlimited batch support",
-    },
-  },
-  {
-    name: { zh: "设计师 Mia", en: "Mia, UI Designer" },
-    role: { zh: "为多个平台准备设计素材", en: "Prepares design assets for multiple platforms" },
-    pain: {
-      zh: "不同平台要求不同格式（WebP、AVIF、PNG），手动转换效率低",
-      en: "Different platforms require different formats (WebP, AVIF, PNG) — manual conversion is tedious",
-    },
-    solution: {
-      zh: "一键格式转换，支持 JPEG/PNG/WebP/AVIF 互转",
-      en: "One-click format conversion between JPEG, PNG, WebP, and AVIF",
-    },
-  },
-  {
-    name: { zh: "内容创作者 Leo", en: "Leo, Content Creator" },
-    role: { zh: "管理社交媒体图片内容", en: "Manages social media image content" },
-    pain: {
-      zh: "每天需要压缩大量图片，逐张处理太慢",
-      en: "Needs to compress dozens of images daily — processing one by one is too slow",
-    },
-    solution: {
-      zh: "批量处理 + Web Workers 并行压缩，利用全部 CPU 核心",
-      en: "Batch processing with Web Workers parallel compression using all CPU cores",
-    },
-  },
-  {
-    name: { zh: "普通用户 Anna", en: "Anna, Everyday User" },
-    role: { zh: "偶尔需要压缩图片发送邮件", en: "Occasionally compresses images for email" },
-    pain: {
-      zh: "不想注册账号、不想安装软件，只想快速压缩",
-      en: "Does not want to sign up or install software — just needs quick compression",
-    },
-    solution: {
-      zh: "打开即用，无需注册，完全免费",
-      en: "Open and use immediately — no registration, completely free",
-    },
-  },
-];
 
 export const USE_CASES: UseCase[] = [
   {
@@ -344,7 +287,6 @@ export const COMPARISON = {
 };
 
 export const HEADINGS = {
-  whoFor: { zh: "谁在使用 Image Shuttle？", en: "Who is Image Shuttle for?" },
   whenUse: { zh: "何时使用 Image Shuttle？", en: "When should I use Image Shuttle?" },
   faq: { zh: "常见问题", en: "Frequently Asked Questions" },
 };

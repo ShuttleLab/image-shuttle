@@ -6,7 +6,6 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  PERSONAS,
   USE_CASES,
   HOWTOS,
   FAQS,
@@ -46,23 +45,6 @@ export function AboutFaq() {
 
   return (
     <div className="space-y-12">
-      {/* Personas */}
-      <section>
-        <h2 className="text-2xl font-bold mb-6">{HEADINGS.whoFor[lang]}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {PERSONAS.map((persona, i) => (
-            <Card key={i}>
-              <CardContent className="p-4 space-y-2">
-                <h3 className="font-semibold">{persona.name[lang]}</h3>
-                <p className="text-xs text-muted-foreground">{persona.role[lang]}</p>
-                <p className="text-sm"><strong>{lang === "zh" ? "痛点：" : "Pain: "}</strong>{persona.pain[lang]}</p>
-                <p className="text-sm"><strong>{lang === "zh" ? "方案：" : "Solution: "}</strong>{persona.solution[lang]}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
       {/* Use Cases */}
       <section>
         <h2 className="text-2xl font-bold mb-6">{HEADINGS.whenUse[lang]}</h2>
