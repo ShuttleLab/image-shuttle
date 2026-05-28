@@ -84,6 +84,8 @@
     "width": "宽度",
     "height": "高度",
     "maintainAspect": "保持宽高比",
+    "placeholderMaxWidth": "最大宽度",
+    "placeholderMaxHeight": "最大高度",
     "presetHigh": "高质量",
     "presetBalanced": "均衡",
     "presetSmall": "最大压缩",

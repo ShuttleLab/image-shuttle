@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-sync";
+import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { Toaster } from "sonner";
 
 const geistSans = Geist({
@@ -17,8 +18,6 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f5f3ff" },
@@ -92,6 +91,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider>
+          <ServiceWorkerRegister />
           {children}
           <Toaster position="top-center" richColors closeButton duration={3000} />
         </ThemeProvider>

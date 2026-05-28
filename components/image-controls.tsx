@@ -122,7 +122,7 @@ export function ImageControls({
               <Label className="text-xs text-muted-foreground">{t("width")}</Label>
               <input
                 type="number"
-                placeholder="Max width"
+                placeholder={t("placeholderMaxWidth")}
                 value={options.maxWidth || ""}
                 onChange={(e) => handleMaxWidthChange(e.target.value)}
                 disabled={disabled}
@@ -133,7 +133,7 @@ export function ImageControls({
               <Label className="text-xs text-muted-foreground">{t("height")}</Label>
               <input
                 type="number"
-                placeholder="Max height"
+                placeholder={t("placeholderMaxHeight")}
                 value={options.maxHeight || ""}
                 onChange={(e) => handleMaxHeightChange(e.target.value)}
                 disabled={disabled}
