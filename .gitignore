@@ -39,6 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-AGENTS.md
+
+# agent-generated transient docs
 MIMO_*.md
 lighthouse-report.*
+.open-next/
+.wrangler/

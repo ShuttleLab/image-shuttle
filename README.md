@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Image Shuttle
+
+<div align="center">
+  <h1>Image Shuttle</h1>
+  <p>
+    <strong>Free, Private & Browser-Based Image Compression</strong>
+  </p>
+  <p>
+    Compress and convert images between JPEG, PNG, WebP, and AVIF directly in your browser — no uploads, no servers.
+  </p>
+</div>
+
+<div align="center">
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss)
+
+</div>
+
+## About
+
+**Image Shuttle** is a privacy-first image compression tool that processes everything entirely within your browser using the Canvas API and WebAssembly. Unlike traditional online compressors that upload your files to remote servers, Image Shuttle keeps your images on your device — making it safe for personal photos, confidential designs, and sensitive business assets.
+
+The project is inspired by Google Chrome Labs' [Squoosh](https://squoosh.app/) but is built independently with Next.js and modern web standards for better SEO, deployment flexibility, and PWA support.
+
+## Key Features
+
+- **100% Private**: All processing happens client-side via Canvas API and WebAssembly. No file uploads to external servers.
+- **Four Formats**: JPEG, PNG, WebP, and AVIF — compress within a format or convert between any of them.
+- **WebAssembly PNG Quantization**: PNG compression uses `libimagequant-wasm` for 50-80% size reduction while preserving transparency.
+- **Batch Processing**: Compress dozens of images in parallel using Web Workers (auto-tuned to your CPU core count).
+- **Before/After Comparison**: Real-time visual comparison slider to verify quality before downloading.
+- **Offline-Capable PWA**: Install to your home screen and compress images without an internet connection.
+- **Bilingual UI**: Native English and Chinese interfaces with full SEO localization.
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router) + [React 19](https://react.dev/)
+- **Language**: [TypeScript 5](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) primitives
+- **Image Processing**:
+  - Canvas API `toBlob()` for JPEG / WebP / AVIF
+  - [`@fe-daily/libimagequant-wasm`](https://www.npmjs.com/package/@fe-daily/libimagequant-wasm) for PNG quantization
+  - [`react-compare-slider`](https://github.com/nerdyman/react-compare-slider) for before/after visualization
+- **i18n**: [next-intl](https://next-intl.dev/) with URL-based routing (`localePrefix: "as-needed"`)
+- **Theming**: [next-themes](https://github.com/pacocoursey/next-themes) (System / Light / Dark)
+- **Toasts**: [Sonner](https://sonner.emilkowal.ski/)
+- **Fonts**: [Geist](https://vercel.com/font) + Geist Mono
+- **PWA**: Custom Service Worker with offline precaching (including WASM modules)
+- **Deployment**: [Cloudflare Workers](https://workers.cloudflare.com/) via [OpenNext](https://opennext.js.org/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm, yarn, or pnpm
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ShuttleLab/image-shuttle.git
+   cd image-shuttle
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+   The `postinstall` script automatically copies the libimagequant WASM binary into `public/wasm/`.
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application running.
+
+### Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the Next.js dev server |
+| `npm run build` | Compile and type-check for production |
+| `npm run lint` | Run ESLint |
+| `npm run preview` | Build with OpenNext and run locally via Wrangler |
+| `npm run deploy` | Build with OpenNext and deploy to Cloudflare Workers |
+
+## Deployment
+
+Image Shuttle is deployed on Cloudflare Workers using OpenNext.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run deploy
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Service Worker (`public/sw.js`) precaches the application shell, all Layer 4 tool pages, both locales, and the libimagequant WASM module — enabling full offline operation after the first visit.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Acknowledgments
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Image Shuttle was inspired by Google Chrome Labs' [Squoosh](https://github.com/GoogleChromeLabs/squoosh) project, which pioneered the idea of high-quality client-side image compression. While Squoosh uses a custom Rollup build, Image Shuttle is an independent implementation built on Next.js for better SEO, multi-language support, and PWA deployment. No Squoosh source code is used in this project.
 
-## Learn More
+PNG quantization is provided by [`@fe-daily/libimagequant-wasm`](https://www.npmjs.com/package/@fe-daily/libimagequant-wasm), a WebAssembly port of [libimagequant](https://github.com/ImageOptim/libimagequant).
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+  Built by <a href="https://github.com/ShuttleLab">ShuttleLab</a>
+</div>
