@@ -18,11 +18,14 @@ export async function generateMetadata({
     title: t("title"),
     description: t("subtitle"),
     alternates: {
-      canonical: locale === "en" ? "/" : `/${locale}`,
+      canonical:
+        locale === "en"
+          ? "https://image.shuttlelab.org/"
+          : `https://image.shuttlelab.org/${locale}`,
       languages: {
-        en: "/",
-        zh: "/zh",
-        "x-default": "/",
+        en: "https://image.shuttlelab.org/",
+        zh: "https://image.shuttlelab.org/zh",
+        "x-default": "https://image.shuttlelab.org/",
       },
     },
   };
