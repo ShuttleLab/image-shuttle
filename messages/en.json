@@ -76,6 +76,7 @@
     "dropzoneTitle": "Drop images here or click to browse",
     "dropzoneSubtitle": "Supports JPEG, PNG, WebP, AVIF — up to 16K resolution",
     "selectFiles": "Select Files",
+    "removeImage": "Remove image",
     "processing": "Processing...",
     "complete": "Complete",
     "quality": "Quality",

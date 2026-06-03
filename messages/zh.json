@@ -76,6 +76,7 @@
     "dropzoneTitle": "拖放图片到此处或点击浏览",
     "dropzoneSubtitle": "支持 JPEG、PNG、WebP、AVIF - 最高 16K 分辨率",
     "selectFiles": "选择文件",
+    "removeImage": "移除图片",
     "processing": "处理中...",
     "complete": "完成",
     "quality": "质量",

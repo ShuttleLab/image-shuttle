@@ -292,6 +292,7 @@ export function ImageCompressor() {
                           size="icon"
                           className="size-8"
                           onClick={() => handleRemoveImage(image.id)}
+                          aria-label={t("removeImage")}
                         >
                           <Trash2 className="size-4" />
                         </Button>
