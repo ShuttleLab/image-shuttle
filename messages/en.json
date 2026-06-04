@@ -128,7 +128,7 @@
     "privacy": "No Account Required",
     "privacyDesc": "Start compressing immediately — no sign-up, no email, no tracking. Just drop your images and go.",
     "ttl": "Open Source Spirit",
-    "ttlDesc": "Inspired by Google's Squoosh project, Image Shuttle embraces the same philosophy of client-side processing with modern web standards.",
+    "ttlDesc": "Image Shuttle is open source under the MIT license, built on modern web standards with all processing done client-side.",
     "fast": "Lightning Fast",
     "fastDesc": "Leveraging Web Workers for parallel processing and WebAssembly for PNG optimization, Image Shuttle delivers professional-grade compression at native speed.",
     "useCases": "Who Uses Image Shuttle?",
@@ -145,9 +145,7 @@
     "supportShare": "Share with a friend",
     "share": "Share Image Shuttle",
     "shareCopied": "URL copied to clipboard",
-    "backHome": "Back to Home",
-    "inspiredBy": "Inspired by Squoosh",
-    "inspiredByDesc": "Image Shuttle was inspired by Google Chrome Labs' Squoosh project. While Squoosh uses a custom build system, Image Shuttle is built with Next.js and modern web standards for better maintainability and deployment."
+    "backHome": "Back to Home"
   },
   "privacyPage": {
     "title": "Privacy Policy",
@@ -184,7 +182,7 @@
     "section4": "User Responsibilities",
     "section4Content": "You are responsible for the images you process through Image Shuttle. You agree to only process images you own or have legal permission to modify. You must not use the service for any illegal purpose.",
     "section5": "Intellectual Property",
-    "section5Content": "Image Shuttle and its original content, features, and functionality are owned by ShuttleLab. The service was inspired by Google Chrome Labs' Squoosh project, which is licensed under the Apache License 2.0. Image Shuttle is an independent implementation and does not contain code from Squoosh.",
+    "section5Content": "Image Shuttle and its original content, features, and functionality are owned by ShuttleLab. The service is an independent implementation built on open web standards and open-source libraries.",
     "section6": "Disclaimer of Warranties",
     "section6Content": "Image Shuttle is provided 'as is' without warranties of any kind. We do not guarantee that the service will be uninterrupted, error-free, or produce specific compression results. Image quality and file size reduction depend on the input image and chosen settings.",
     "section7": "Limitation of Liability",

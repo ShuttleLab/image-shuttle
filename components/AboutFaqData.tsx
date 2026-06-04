@@ -318,8 +318,8 @@ export const FAQS: FaqItem[] = [
       en: "What's the difference between Image Shuttle and Squoosh?",
     },
     a: {
-      zh: "Image Shuttle 受 Google 的 Squoosh 项目启发，但使用完全不同的技术栈。Squoosh 使用 Rollup 构建，而 Image Shuttle 使用 Next.js，更适合现代部署。两者都采用客户端处理理念，但 Image Shuttle 的批量处理和并发控制更完善。",
-      en: "Image Shuttle is inspired by Google's Squoosh project but uses a completely different tech stack. Squoosh uses Rollup while Image Shuttle uses Next.js for modern deployment. Both embrace client-side processing, but Image Shuttle has more robust batch processing and concurrency control.",
+      zh: "两者都在浏览器本地处理图片，但定位不同：Squoosh 是单张图片压缩工具，而 Image Shuttle 是完整的图片工作台 —— 除了批量压缩与格式转换，还内置照片编辑器（滤镜、文字、精确像素调整）、拼图制作和平面设计工坊，并提供中英双语界面与 PWA 离线支持。",
+      en: "Both process images locally in your browser, but they serve different needs: Squoosh is a single-image compression tool, while Image Shuttle is a full image studio — batch compression and format conversion plus a built-in photo editor (filters, text, exact-pixel resize), a collage maker and a design studio, with a bilingual UI and offline PWA support.",
     },
   },
 ];
@@ -336,6 +336,8 @@ export const COMPARISON = {
       ["WebP/AVIF 支持", "✓", "✗", "✓"],
       ["WebAssembly PNG 压缩", "✓", "✗", "✗"],
       ["实时预览对比", "✓", "✗", "✓"],
+      ["照片编辑（滤镜/文字/精确调整）", "✓", "✗", "✗"],
+      ["拼图制作与平面设计", "✓", "✗", "✗"],
       ["完全免费", "✓", "免费版有限制", "✓"],
     ],
   },
@@ -350,6 +352,8 @@ export const COMPARISON = {
       ["WebP/AVIF Support", "✓", "✗", "✓"],
       ["WebAssembly PNG Compression", "✓", "✗", "✗"],
       ["Real-time Preview Comparison", "✓", "✗", "✓"],
+      ["Photo Editing (filters/text/exact resize)", "✓", "✗", "✗"],
+      ["Collage Maker & Design Studio", "✓", "✗", "✗"],
       ["Completely Free", "✓", "Free tier limited", "✓"],
     ],
   },

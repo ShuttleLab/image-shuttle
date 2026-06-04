@@ -128,7 +128,7 @@
     "privacy": "无需注册",
     "privacyDesc": "立即开始压缩 - 无需注册、无需邮箱、无需追踪。只需拖放图片即可开始。",
     "ttl": "开源精神",
-    "ttlDesc": "受 Google 的 Squoosh 项目启发，Image Shuttle 秉承相同的理念，使用现代 Web 标准进行客户端处理。",
+    "ttlDesc": "Image Shuttle 以 MIT 协议开源，基于现代 Web 标准构建，全部处理在客户端完成。",
     "fast": "极速处理",
     "fastDesc": "利用 Web Workers 进行并行处理，利用 WebAssembly 进行 PNG 优化，Image Shuttle 以原生速度提供专业级压缩。",
     "useCases": "谁在使用 Image Shuttle？",
@@ -145,9 +145,7 @@
     "supportShare": "分享给朋友",
     "share": "分享 Image Shuttle",
     "shareCopied": "链接已复制到剪贴板",
-    "backHome": "返回首页",
-    "inspiredBy": "受 Squoosh 启发",
-    "inspiredByDesc": "Image Shuttle 受 Google Chrome Labs 的 Squoosh 项目启发。虽然 Squoosh 使用自定义构建系统，但 Image Shuttle 使用 Next.js 和现代 Web 标准构建，具有更好的可维护性和部署能力。"
+    "backHome": "返回首页"
   },
   "privacyPage": {
     "title": "隐私政策",
@@ -184,7 +182,7 @@
     "section4": "用户责任",
     "section4Content": "您对通过 Image Shuttle 处理的图片负责。您同意只处理您拥有或有合法权限修改的图片。您不得将该服务用于任何非法目的。",
     "section5": "知识产权",
-    "section5Content": "Image Shuttle 及其原始内容、功能和功能由 ShuttleLab 所有。该服务受 Google Chrome Labs 的 Squoosh 项目启发，该项目根据 Apache License 2.0 授权。Image Shuttle 是独立实现，不包含 Squoosh 的代码。",
+    "section5Content": "Image Shuttle 及其原始内容、功能由 ShuttleLab 所有。该服务为基于开放 Web 标准与开源库的独立实现。",
     "section6": "免责声明",
     "section6Content": "Image Shuttle 按原样提供，不作任何保证。我们不保证服务不会中断、没有错误或产生特定的压缩结果。图片质量和文件大小减少取决于输入图片和所选设置。",
     "section7": "责任限制",

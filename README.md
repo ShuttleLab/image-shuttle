@@ -21,9 +21,7 @@
 
 ## About
 
-**Image Shuttle** is a privacy-first image studio — compressor, photo editor, collage maker and design studio in one that processes everything entirely within your browser using the Canvas API and WebAssembly. Unlike traditional online compressors that upload your files to remote servers, Image Shuttle keeps your images on your device — making it safe for personal photos, confidential designs, and sensitive business assets.
-
-The project is inspired by Google Chrome Labs' [Squoosh](https://squoosh.app/) but is built independently with Next.js and modern web standards for better SEO, deployment flexibility, and PWA support.
+**Image Shuttle** is a privacy-first image studio — compressor, photo editor, collage maker and design studio in one that processes everything entirely within your browser using the Canvas API and WebAssembly. Unlike traditional online image tools that upload your files to remote servers, Image Shuttle keeps your images on your device — making it safe for personal photos, confidential designs, and sensitive business assets.
 
 ## Key Features
 
@@ -105,8 +103,6 @@ npm run deploy
 The Service Worker (`public/sw.js`) precaches the application shell, all Layer 4 tool pages, both locales, and the libimagequant WASM module — enabling full offline operation after the first visit.
 
 ## Acknowledgments
-
-Image Shuttle was inspired by Google Chrome Labs' [Squoosh](https://github.com/GoogleChromeLabs/squoosh) project, which pioneered the idea of high-quality client-side image compression. While Squoosh uses a custom Rollup build, Image Shuttle is an independent implementation built on Next.js for better SEO, multi-language support, and PWA deployment. No Squoosh source code is used in this project.
 
 PNG quantization is provided by [`@fe-daily/libimagequant-wasm`](https://www.npmjs.com/package/@fe-daily/libimagequant-wasm), a WebAssembly port of [libimagequant](https://github.com/ImageOptim/libimagequant).
 

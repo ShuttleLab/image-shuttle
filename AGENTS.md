@@ -91,4 +91,4 @@ Image Shuttle — a free, browser-based image studio: compression/conversion, Fo
 
 ## License
 
-MIT — inspired by Google's Squoosh project (Apache 2.0)
+MIT

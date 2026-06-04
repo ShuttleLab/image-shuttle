@@ -122,14 +122,6 @@ export default async function AboutPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Inspired By (subtle) */}
-        <section className="mb-16 p-6 bg-muted rounded-lg">
-          <h3 className="font-semibold mb-2">{t("inspiredBy")}</h3>
-          <p className="text-sm text-muted-foreground">
-            {t("inspiredByDesc")}
-          </p>
-        </section>
-
         {/* AboutFaq */}
         <section className="mb-16">
           <AboutFaq />
