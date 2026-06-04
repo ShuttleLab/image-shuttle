@@ -7,6 +7,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const bilingualPaths = [
     { path: "", priority: 1.0, changeFrequency: "weekly" as const },
+    { path: "/editor", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/collage", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/design", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
     { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },

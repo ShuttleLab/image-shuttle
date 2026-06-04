@@ -70,7 +70,9 @@
     "whyCompressionP2": "除了提升网站性能，图片压缩还能节省带宽和存储空间。如果你管理博客、电商网站或社交媒体内容，每月可能处理数百张图片。压缩这些图片可以降低托管成本、加速备份，并让你的网站在较慢的移动网络上更容易访问。Image Shuttle 通过完全在浏览器中运行，让这个过程变得轻松简单 — 无需安装软件或上传文件到第三方服务器。",
     "howDifferentTitle": "Image Shuttle 与基于服务器的工具的区别",
     "howDifferentP1": "传统的图片压缩工具如 TinyPNG 和 Compressor.io 需要你将图片上传到它们的服务器进行处理。虽然方便，但这种方法会引发隐私问题 — 你的照片、设计和文档会经过第三方基础设施。对于处理敏感内容的企业来说，这可能是合规问题。Image Shuttle 采用了根本不同的方法：所有处理都使用 Canvas API、WebAssembly 和 Web Workers 在浏览器中本地完成。文件永远不会离开你的设备，非常适合注重隐私的用户和组织。",
-    "howDifferentP2": "Image Shuttle 的批量处理能力也很突出。许多免费工具一次只能处理一张图片，而 Image Shuttle 使用你设备的 CPU 核心数（通过 navigator.hardwareConcurrency）并行处理多张图片。结合对 JPEG、PNG、WebP 和 AVIF 格式的支持，以及由 react-compare-slider 驱动的实时前后对比滑块，Image Shuttle 提供了专业级的压缩工作流程，完全免费且无需注册。"
+    "howDifferentP2": "Image Shuttle 的批量处理能力也很突出。许多免费工具一次只能处理一张图片，而 Image Shuttle 使用你设备的 CPU 核心数（通过 navigator.hardwareConcurrency）并行处理多张图片。结合对 JPEG、PNG、WebP 和 AVIF 格式的支持，以及由 react-compare-slider 驱动的实时前后对比滑块，Image Shuttle 提供了专业级的压缩工作流程，完全免费且无需注册。",
+    "modulesHeading": "完整的图片工作台",
+    "modulesSubtitle": "编辑、拼图、设计 —— 全部本地处理、免费、无水印。"
   },
   "compressor": {
     "dropzoneTitle": "拖放图片到此处或点击浏览",
@@ -199,5 +201,178 @@
     "compressJpg": "压缩 JPG",
     "compressPng": "压缩 PNG",
     "convertWebp": "转换为 WebP"
+  },
+  "editor": {
+    "metaTitle": "在线图片编辑器 — 免费滤镜、文字、裁剪 | Image Shuttle",
+    "metaDesc": "在浏览器中编辑照片：亮度、对比度、滤镜、裁剪、旋转、文字、贴纸与形状。100% 本地处理，无上传，无水印。",
+    "title": "图片编辑器",
+    "subtitle": "调整、滤镜、裁剪、标注 —— 一切都在你的设备上完成。",
+    "exported": "已导出（{size}）",
+    "exportFailed": "导出失败",
+    "quality": "质量",
+    "download": "下载",
+    "undo": "撤销",
+    "redo": "重做",
+    "flipH": "水平翻转",
+    "flipV": "垂直翻转",
+    "deleteLayer": "删除",
+    "newImage": "换一张",
+    "canvasHint": "画布 {w} × {h} 像素 —— 按原始分辨率导出",
+    "tabs": {
+      "adjust": "调整",
+      "filters": "滤镜",
+      "text": "文字",
+      "stickers": "贴纸",
+      "shapes": "形状",
+      "crop": "裁剪",
+      "export": "导出"
+    },
+    "adjust": {
+      "brightness": "亮度",
+      "contrast": "对比度",
+      "saturation": "饱和度",
+      "hue": "色相",
+      "blur": "模糊",
+      "sharpen": "锐化",
+      "vignette": "暗角",
+      "noise": "颗粒",
+      "reset": "全部重置"
+    },
+    "presets": {
+      "original": "原图",
+      "bw": "黑白",
+      "noir": "胶片黑",
+      "sepia": "怀旧棕",
+      "vintage": "复古",
+      "warm": "暖调",
+      "cool": "冷调",
+      "fade": "褪色",
+      "punch": "浓郁",
+      "soft": "柔和",
+      "dramatic": "戏剧",
+      "pixel": "像素化"
+    },
+    "text": {
+      "sample": "双击编辑文字",
+      "add": "添加文字",
+      "editHint": "拖动移动位置 · 双击编辑内容",
+      "selectHint": "先添加一个文字图层，或在画布上选中文字后进行样式设置。",
+      "size": "字号",
+      "color": "颜色",
+      "outline": "描边",
+      "outlineColor": "描边颜色",
+      "opacity": "不透明度",
+      "style": {
+        "normal": "Aa",
+        "bold": "粗",
+        "italic": "斜",
+        "bold_italic": "粗斜"
+      },
+      "align": {
+        "left": "左",
+        "center": "中",
+        "right": "右"
+      }
+    },
+    "stickerCats": {
+      "smileys": "表情",
+      "love": "爱心",
+      "celebrate": "庆祝",
+      "nature": "自然",
+      "food": "美食",
+      "symbols": "符号"
+    },
+    "shapeNames": {
+      "rect": "矩形",
+      "circle": "圆形",
+      "triangle": "三角",
+      "star": "星形",
+      "line": "直线",
+      "arrow": "箭头"
+    },
+    "shapes": {
+      "fill": "填充",
+      "strokeWidth": "边框",
+      "stroke": "边框颜色",
+      "radius": "圆角"
+    },
+    "crop": {
+      "start": "开始裁剪",
+      "apply": "应用",
+      "cancel": "取消",
+      "clear": "清除裁剪",
+      "rotateFirst": "请先把旋转归零再裁剪。"
+    }
+  },
+  "collage": {
+    "metaTitle": "在线拼图制作 — 免费网格布局 | Image Shuttle",
+    "metaDesc": "在浏览器中把多张照片拼成网格或马赛克。20+ 布局，可调间距、圆角、背景。本地处理、免费、无水印。",
+    "title": "拼图制作",
+    "subtitle": "选布局、放照片、微调间距 —— 按全分辨率导出。",
+    "assignHint": "点击放入选中的格子",
+    "selectCellFirst": "先选中一个格子，再点照片",
+    "poolHint": "添加照片 —— 会自动填入空格子。",
+    "status": "已填 {filled} / {total} 格",
+    "layouts": "布局",
+    "spacing": "间距",
+    "margin": "外边距",
+    "radius": "圆角",
+    "background": "背景",
+    "cellControls": "格子 {n}",
+    "zoom": "缩放",
+    "clearCell": "清空格子"
+  },
+  "design": {
+    "metaTitle": "在线平面设计 — 自定义尺寸免费 | Image Shuttle",
+    "metaDesc": "在浏览器中制作社交封面、缩略图、海报与 Logo。自定义画布尺寸免费、图层式文字/形状/贴纸，永远无水印。",
+    "title": "设计工坊",
+    "subtitle": "图层式画布 + 模板 + 免费自定义尺寸 —— 永远没有水印。",
+    "tabs": {
+      "templates": "模板",
+      "canvas": "画布",
+      "layers": "图层"
+    },
+    "centerH": "水平居中",
+    "centerV": "垂直居中",
+    "duplicate": "复制图层",
+    "templates": {
+      "blank": "空白",
+      "ogCard": "OG / 链接卡片",
+      "ytThumb": "YouTube 缩略图",
+      "igQuote": "金句卡",
+      "salePoster": "促销海报",
+      "logoMono": "字母 Logo",
+      "fbBanner": "Facebook 封面",
+      "story": "竖版 Story",
+      "birthday": "生日贺卡",
+      "minimal": "极简横幅"
+    },
+    "sizePresets": "尺寸预设",
+    "sizes": {
+      "og": "OG 图 1200×630",
+      "ytThumb": "YouTube 1280×720",
+      "fbCover": "FB 封面 1640×859",
+      "igPost": "Instagram 1080×1080",
+      "igStory": "Story 1080×1920",
+      "twitterHeader": "X 头图 1500×500",
+      "logo": "Logo 512×512",
+      "a4Poster": "海报 A4"
+    },
+    "widthPx": "宽（px）",
+    "heightPx": "高（px）",
+    "bg": {
+      "solid": "纯色",
+      "gradient": "渐变",
+      "color1": "颜色",
+      "color2": "第二颜色",
+      "angle": "角度"
+    },
+    "sampleText": "在这里输入文字",
+    "addImage": "添加图片",
+    "noLayers": "还没有图层 —— 添加文字、贴纸或形状。",
+    "layerUp": "上移",
+    "layerDown": "下移",
+    "shapeKind": "形状",
+    "imageKind": "图片"
   }
 }

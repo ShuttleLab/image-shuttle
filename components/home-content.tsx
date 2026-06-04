@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import {
   Shield,
   Zap,
@@ -72,6 +73,33 @@ export function HomeContent() {
       {/* Image Compressor Tool */}
       <section className="mb-20">
         <ImageCompressor />
+      </section>
+
+      {/* Studio modules */}
+      <section className="mb-20">
+        <h2 className="text-2xl font-bold text-center mb-2">{t("home.modulesHeading")}</h2>
+        <p className="text-center text-muted-foreground text-sm mb-8">{t("home.modulesSubtitle")}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {([
+            { href: "/editor", icon: Sliders, titleKey: "editor.title", descKey: "editor.subtitle" },
+            { href: "/collage", icon: Layers, titleKey: "collage.title", descKey: "collage.subtitle" },
+            { href: "/design", icon: Eye, titleKey: "design.title", descKey: "design.subtitle" },
+          ] as const).map((m) => (
+            <Link key={m.href} href={m.href}>
+              <Card className="hover:shadow-md hover:border-primary/40 transition-all h-full">
+                <CardContent className="flex items-start gap-4">
+                  <div className="rounded-lg bg-primary/10 p-3 shrink-0">
+                    <m.icon className="size-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1 text-base">{t(m.titleKey)}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{t(m.descKey)}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Features */}

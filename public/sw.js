@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const APP_CACHE = `image-shuttle-${CACHE_VERSION}`;
 const WASM_CACHE = `image-shuttle-wasm-${CACHE_VERSION}`;
 
@@ -15,6 +15,13 @@ const PRECACHE_URLS = [
   "/zh/about",
   "/zh/privacy",
   "/zh/terms",
+  // Editor / Collage / Design
+  "/editor",
+  "/zh/editor",
+  "/collage",
+  "/zh/collage",
+  "/design",
+  "/zh/design",
   // Layer 4 (en-only)
   "/tools/compress-jpg",
   "/tools/compress-png",

@@ -32,19 +32,35 @@ export default function Header() {
               <ul className="flex items-center gap-2 sm:gap-4">
                 <li>
                   <Link
+                    href="/editor"
+                    className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+                  >
+                    {t("editor.title")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/collage"
+                    className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+                  >
+                    {t("collage.title")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/design"
+                    className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+                  >
+                    {t("design.title")}
+                  </Link>
+                </li>
+                <li className="hidden sm:block">
+                  <Link
                     href="/about"
                     className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
                   >
                     {t("common.about")}
                   </Link>
-                </li>
-                <li>
-                  <a
-                    href="mailto:support@shuttlelab.org"
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {t("common.contact")}
-                  </a>
                 </li>
               </ul>
             </nav>

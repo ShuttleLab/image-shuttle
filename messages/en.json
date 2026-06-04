@@ -70,7 +70,9 @@
     "whyCompressionP2": "Beyond web performance, image compression saves bandwidth and storage space. If you manage a blog, e-commerce site, or social media presence, you likely handle hundreds of images every month. Compressing these images reduces your hosting costs, speeds up backups, and makes your site more accessible to users on slower mobile connections. Image Shuttle makes this process effortless by running entirely in your browser — no need to install software or upload files to third-party servers.",
     "howDifferentTitle": "How Image Shuttle Differs from Server-Based Tools",
     "howDifferentP1": "Traditional image compression tools like TinyPNG and Compressor.io require you to upload your images to their servers for processing. While convenient, this approach raises privacy concerns — your photos, designs, and documents pass through third-party infrastructure. For businesses handling sensitive content, this can be a compliance issue. Image Shuttle takes a fundamentally different approach: all processing happens locally in your browser using the Canvas API, WebAssembly, and Web Workers. Your files never leave your device, making it ideal for privacy-conscious users and organizations.",
-    "howDifferentP2": "Image Shuttle also stands out with its batch processing capabilities. While many free tools limit you to one image at a time, Image Shuttle uses your device's CPU cores (via navigator.hardwareConcurrency) to process multiple images in parallel. Combined with support for JPEG, PNG, WebP, and AVIF formats, plus a real-time before/after comparison slider powered by react-compare-slider, Image Shuttle provides a professional-grade compression workflow without any cost or registration."
+    "howDifferentP2": "Image Shuttle also stands out with its batch processing capabilities. While many free tools limit you to one image at a time, Image Shuttle uses your device's CPU cores (via navigator.hardwareConcurrency) to process multiple images in parallel. Combined with support for JPEG, PNG, WebP, and AVIF formats, plus a real-time before/after comparison slider powered by react-compare-slider, Image Shuttle provides a professional-grade compression workflow without any cost or registration.",
+    "modulesHeading": "A complete image studio",
+    "modulesSubtitle": "Editor, collage and design — all private, all free, no watermark."
   },
   "compressor": {
     "dropzoneTitle": "Drop images here or click to browse",
@@ -199,5 +201,178 @@
     "compressJpg": "Compress JPG",
     "compressPng": "Compress PNG",
     "convertWebp": "Convert to WebP"
+  },
+  "editor": {
+    "metaTitle": "Photo Editor Online — Free Filters, Text & Crop | Image Shuttle",
+    "metaDesc": "Edit photos in your browser: brightness, contrast, filters, crop, rotate, text, stickers and shapes. 100% private, no uploads, no watermark.",
+    "title": "Photo Editor",
+    "subtitle": "Adjust, filter, crop and annotate — everything stays on your device.",
+    "exported": "Exported ({size})",
+    "exportFailed": "Export failed",
+    "quality": "Quality",
+    "download": "Download",
+    "undo": "Undo",
+    "redo": "Redo",
+    "flipH": "Flip horizontal",
+    "flipV": "Flip vertical",
+    "deleteLayer": "Delete",
+    "newImage": "New image",
+    "canvasHint": "Canvas {w} × {h} px — exports at full resolution",
+    "tabs": {
+      "adjust": "Adjust",
+      "filters": "Filters",
+      "text": "Text",
+      "stickers": "Stickers",
+      "shapes": "Shapes",
+      "crop": "Crop",
+      "export": "Export"
+    },
+    "adjust": {
+      "brightness": "Brightness",
+      "contrast": "Contrast",
+      "saturation": "Saturation",
+      "hue": "Hue",
+      "blur": "Blur",
+      "sharpen": "Sharpen",
+      "vignette": "Vignette",
+      "noise": "Grain",
+      "reset": "Reset all"
+    },
+    "presets": {
+      "original": "Original",
+      "bw": "B&W",
+      "noir": "Noir",
+      "sepia": "Sepia",
+      "vintage": "Vintage",
+      "warm": "Warm",
+      "cool": "Cool",
+      "fade": "Fade",
+      "punch": "Punch",
+      "soft": "Soft",
+      "dramatic": "Dramatic",
+      "pixel": "Pixel"
+    },
+    "text": {
+      "sample": "Double-click to edit",
+      "add": "Add text",
+      "editHint": "Drag to move · double-click to edit content",
+      "selectHint": "Add a text layer, or select one on the canvas to style it.",
+      "size": "Size",
+      "color": "Color",
+      "outline": "Outline",
+      "outlineColor": "Outline color",
+      "opacity": "Opacity",
+      "style": {
+        "normal": "Aa",
+        "bold": "B",
+        "italic": "I",
+        "bold_italic": "B/I"
+      },
+      "align": {
+        "left": "Left",
+        "center": "Center",
+        "right": "Right"
+      }
+    },
+    "stickerCats": {
+      "smileys": "Smileys",
+      "love": "Love",
+      "celebrate": "Celebrate",
+      "nature": "Nature",
+      "food": "Food",
+      "symbols": "Symbols"
+    },
+    "shapeNames": {
+      "rect": "Rectangle",
+      "circle": "Circle",
+      "triangle": "Triangle",
+      "star": "Star",
+      "line": "Line",
+      "arrow": "Arrow"
+    },
+    "shapes": {
+      "fill": "Fill",
+      "strokeWidth": "Border",
+      "stroke": "Border color",
+      "radius": "Corner radius"
+    },
+    "crop": {
+      "start": "Start cropping",
+      "apply": "Apply",
+      "cancel": "Cancel",
+      "clear": "Remove crop",
+      "rotateFirst": "Reset rotation to 0° before cropping."
+    }
+  },
+  "collage": {
+    "metaTitle": "Photo Collage Maker Online — Free Grid Layouts | Image Shuttle",
+    "metaDesc": "Combine photos into grids and mosaics in your browser. 20+ layouts, adjustable spacing, rounded corners and backgrounds. Private, free, no watermark.",
+    "title": "Collage Maker",
+    "subtitle": "Pick a layout, drop in photos, fine-tune spacing — then export in full resolution.",
+    "assignHint": "Click to place into the selected cell",
+    "selectCellFirst": "Select a cell first, then click a photo",
+    "poolHint": "Add photos — they fill empty cells automatically.",
+    "status": "{filled} of {total} cells filled",
+    "layouts": "Layouts",
+    "spacing": "Spacing",
+    "margin": "Outer margin",
+    "radius": "Corner radius",
+    "background": "Background",
+    "cellControls": "Cell {n}",
+    "zoom": "Zoom",
+    "clearCell": "Clear cell"
+  },
+  "design": {
+    "metaTitle": "Graphic Design Maker Online — Free Custom Sizes | Image Shuttle",
+    "metaDesc": "Create social covers, thumbnails, posters and logos in your browser. Custom canvas sizes free, layered text/shapes/stickers, no watermark ever.",
+    "title": "Design Studio",
+    "subtitle": "Layered canvas with templates and free custom sizes — no watermark, ever.",
+    "tabs": {
+      "templates": "Templates",
+      "canvas": "Canvas",
+      "layers": "Layers"
+    },
+    "centerH": "Center horizontally",
+    "centerV": "Center vertically",
+    "duplicate": "Duplicate",
+    "templates": {
+      "blank": "Blank",
+      "ogCard": "OG / Link card",
+      "ytThumb": "YouTube thumbnail",
+      "igQuote": "Quote post",
+      "salePoster": "Sale poster",
+      "logoMono": "Monogram logo",
+      "fbBanner": "Facebook cover",
+      "story": "Story",
+      "birthday": "Birthday card",
+      "minimal": "Minimal banner"
+    },
+    "sizePresets": "Size presets",
+    "sizes": {
+      "og": "OG image 1200×630",
+      "ytThumb": "YouTube 1280×720",
+      "fbCover": "FB cover 1640×859",
+      "igPost": "Instagram 1080×1080",
+      "igStory": "Story 1080×1920",
+      "twitterHeader": "X header 1500×500",
+      "logo": "Logo 512×512",
+      "a4Poster": "Poster A4"
+    },
+    "widthPx": "Width (px)",
+    "heightPx": "Height (px)",
+    "bg": {
+      "solid": "Solid",
+      "gradient": "Gradient",
+      "color1": "Color",
+      "color2": "Second color",
+      "angle": "Angle"
+    },
+    "sampleText": "Your text here",
+    "addImage": "Add image",
+    "noLayers": "No layers yet — add text, stickers or shapes.",
+    "layerUp": "Move up",
+    "layerDown": "Move down",
+    "shapeKind": "Shape",
+    "imageKind": "Image"
   }
 }
