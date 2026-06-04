@@ -108,7 +108,11 @@ PNG quantization is provided by [`@fe-daily/libimagequant-wasm`](https://www.npm
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+Licensed under the GNU Affero General Public License v3.0 — see [LICENSE](./LICENSE).
+
+Free to use, modify, and self-host. If you run a modified version as a network service, you must open-source your modifications (AGPL §13). For commercial licensing without copyleft obligations, contact support@shuttlelab.org.
+
+> Relicensed from MIT to AGPL-3.0 in June 2026 (sole copyright holder). Versions published before this change remain available under MIT per their original grant.
 
 ---
 
