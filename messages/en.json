@@ -83,6 +83,7 @@
     "complete": "Complete",
     "quality": "Quality",
     "format": "Output Format",
+    "apply": "Compress",
     "sameAsOriginal": "Same as original",
     "resize": "Resize",
     "width": "Width",
