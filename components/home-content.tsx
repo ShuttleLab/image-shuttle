@@ -72,7 +72,15 @@ export function HomeContent() {
 
       {/* Image Compressor Tool */}
       <section className="mb-20">
+        <h2 className="text-2xl font-bold text-center mb-2">{t("home.compressHeading")}</h2>
+        <p className="text-center text-muted-foreground text-sm mb-6">{t("home.compressSubtitle")}</p>
         <ImageCompressor />
+        <p className="text-center text-sm text-muted-foreground mt-4">
+          {t("home.compressEditorHint")}{" "}
+          <Link href="/editor" className="text-primary font-medium hover:underline">
+            {t("home.compressEditorLink")}
+          </Link>
+        </p>
       </section>
 
       {/* Studio modules */}

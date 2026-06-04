@@ -19,7 +19,7 @@ import {
 import { FONT_FAMILIES, STICKER_CATEGORIES, SHAPE_TYPES, type ShapeType } from "@/lib/editor/assets";
 import { OverlayNodes, TextEditOverlay } from "./overlay-nodes";
 import { makeShape, makeSticker, makeText, type Overlay, type TextOverlay } from "./overlay-types";
-import { SliderRow, ColorRow, ExportPanel } from "./controls";
+import { SliderRow, ColorRow, ExportPanel, NumField } from "./controls";
 import { cn } from "@/lib/utils";
 
 interface CropRect { x: number; y: number; width: number; height: number }
@@ -550,19 +550,13 @@ function DimInputs({ w, h, locked, onToggleLock, onW, onH }: {
 }) {
   return (
     <div className="flex items-center gap-1.5">
-      <input type="number" value={w} min={8} max={8192}
-        onChange={(e) => onW(parseInt(e.target.value) || 0)}
-        className="w-full h-9 px-2 rounded-md border bg-background text-sm font-mono min-w-0"
-        aria-label="width" />
+      <NumField value={w} onCommit={onW} ariaLabel="width" />
       <button type="button" onClick={onToggleLock}
         className={cn("shrink-0 p-1.5 rounded-md border", locked ? "text-primary border-primary/50" : "text-muted-foreground")}
         aria-label="lock aspect ratio">
         {locked ? <Lock className="size-3.5" /> : <Unlock className="size-3.5" />}
       </button>
-      <input type="number" value={h} min={8} max={8192}
-        onChange={(e) => onH(parseInt(e.target.value) || 0)}
-        className="w-full h-9 px-2 rounded-md border bg-background text-sm font-mono min-w-0"
-        aria-label="height" />
+      <NumField value={h} onCommit={onH} ariaLabel="height" />
     </div>
   );
 }

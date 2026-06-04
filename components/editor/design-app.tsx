@@ -15,7 +15,7 @@ import { CANVAS_PRESETS, DESIGN_TEMPLATES, type DesignDoc } from "@/lib/editor/d
 import { FONT_FAMILIES, STICKER_CATEGORIES, SHAPE_TYPES } from "@/lib/editor/assets";
 import { OverlayNodes, TextEditOverlay } from "./overlay-nodes";
 import { makeShape, makeSticker, makeText, overlayId, type Overlay, type TextOverlay, type ShapeOverlay } from "./overlay-types";
-import { SliderRow, ColorRow, ExportPanel } from "./controls";
+import { SliderRow, ColorRow, ExportPanel, NumField } from "./controls";
 import { cn } from "@/lib/utils";
 
 type Panel = "templates" | "canvas" | "text" | "stickers" | "shapes" | "layers" | "export";
@@ -243,15 +243,13 @@ export default function DesignApp() {
               <div className="grid grid-cols-2 gap-2">
                 <label className="space-y-1">
                   <span className="text-xs text-muted-foreground">{t("widthPx")}</span>
-                  <input type="number" min={64} max={4096} value={doc.width}
-                    onChange={(e) => set((d) => ({ ...d, width: Math.max(64, Math.min(4096, parseInt(e.target.value) || 64)) }))}
-                    className="w-full h-9 px-2 rounded-md border bg-background text-sm font-mono" />
+                  <NumField value={doc.width} min={64} max={4096} ariaLabel={t("widthPx")}
+                    onCommit={(v) => set((d) => ({ ...d, width: v }))} />
                 </label>
                 <label className="space-y-1">
                   <span className="text-xs text-muted-foreground">{t("heightPx")}</span>
-                  <input type="number" min={64} max={4096} value={doc.height}
-                    onChange={(e) => set((d) => ({ ...d, height: Math.max(64, Math.min(4096, parseInt(e.target.value) || 64)) }))}
-                    className="w-full h-9 px-2 rounded-md border bg-background text-sm font-mono" />
+                  <NumField value={doc.height} min={64} max={4096} ariaLabel={t("heightPx")}
+                    onCommit={(v) => set((d) => ({ ...d, height: v }))} />
                 </label>
               </div>
               <div className="flex gap-1.5">

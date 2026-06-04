@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type Konva from "konva";
 import { Download, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -11,6 +11,45 @@ import { exportAndDownload, type ExportFormat } from "@/lib/editor/export";
 import { formatFileSize } from "@/lib/image-processor";
 import { SWATCHES } from "@/lib/editor/assets";
 import { cn } from "@/lib/utils";
+
+/**
+ * Number field that tolerates transient empty/partial input. The classic
+ * controlled-input bug: clamping in onChange means clearing the field
+ * instantly snaps back to the min value ("the 8 you can't delete").
+ * Instead: hold local text state, commit only valid values, snap back
+ * to the last committed value on blur.
+ */
+export function NumField({ value, min = 8, max = 8192, onCommit, ariaLabel }: {
+  value: number; min?: number; max?: number; onCommit: (v: number) => void; ariaLabel: string;
+}) {
+  const [text, setText] = useState(String(value));
+  const focused = useRef(false);
+  useEffect(() => {
+    if (!focused.current) setText(String(value));
+  }, [value]);
+  return (
+    <input
+      type="number"
+      value={text}
+      min={min}
+      max={max}
+      onFocus={() => { focused.current = true; }}
+      onChange={(e) => {
+        setText(e.target.value);
+        const n = parseInt(e.target.value, 10);
+        if (!isNaN(n) && n >= min && n <= max) onCommit(n);
+      }}
+      onBlur={() => {
+        focused.current = false;
+        const n = parseInt(text, 10);
+        if (isNaN(n) || n < min || n > max) setText(String(value));
+        else setText(String(n));
+      }}
+      className="w-full h-9 px-2 rounded-md border bg-background text-sm font-mono min-w-0"
+      aria-label={ariaLabel}
+    />
+  );
+}
 
 /** Labeled range slider used across all editor panels. */
 export function SliderRow({
