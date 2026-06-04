@@ -37,7 +37,7 @@
   },
   "home": {
     "title": "Image Shuttle",
-    "subtitle": "在浏览器中直接压缩和转换图片。无需上传，无需服务器 - 100% 隐私安全。",
+    "subtitle": "浏览器里的免费私密图片工作台 —— 压缩、转换、编辑、调整尺寸、拼图与设计。无需上传，永远无水印。",
     "cta": "开始压缩",
     "secondaryCta": "了解更多",
     "feature1Title": "100% 隐私安全",
@@ -72,7 +72,7 @@
     "howDifferentP1": "传统的图片压缩工具如 TinyPNG 和 Compressor.io 需要你将图片上传到它们的服务器进行处理。虽然方便，但这种方法会引发隐私问题 — 你的照片、设计和文档会经过第三方基础设施。对于处理敏感内容的企业来说，这可能是合规问题。Image Shuttle 采用了根本不同的方法：所有处理都使用 Canvas API、WebAssembly 和 Web Workers 在浏览器中本地完成。文件永远不会离开你的设备，非常适合注重隐私的用户和组织。",
     "howDifferentP2": "Image Shuttle 的批量处理能力也很突出。许多免费工具一次只能处理一张图片，而 Image Shuttle 使用你设备的 CPU 核心数（通过 navigator.hardwareConcurrency）并行处理多张图片。结合对 JPEG、PNG、WebP 和 AVIF 格式的支持，以及由 react-compare-slider 驱动的实时前后对比滑块，Image Shuttle 提供了专业级的压缩工作流程，完全免费且无需注册。",
     "modulesHeading": "完整的图片工作台",
-    "modulesSubtitle": "编辑、拼图、设计 —— 全部本地处理、免费、无水印。"
+    "modulesSubtitle": "压缩器、图片编辑器、拼图制作、设计工坊 —— 全部本地处理、免费、无水印。"
   },
   "compressor": {
     "dropzoneTitle": "拖放图片到此处或点击浏览",
@@ -114,10 +114,10 @@
   },
   "about": {
     "heroTitle": "关于 Image Shuttle",
-    "heroSubtitle": "由 ShuttleLab 打造的快速、私密、基于浏览器的图片压缩工具",
+    "heroSubtitle": "由 ShuttleLab 打造的免费私密浏览器图片工作台 —— 压缩、编辑、拼图、设计",
     "serviceTitle": "什么是 Image Shuttle？",
-    "serviceP1": "Image Shuttle 是一款免费的在线图片压缩和格式转换工具，所有处理直接在浏览器中完成。与传统的图片压缩工具不同，Image Shuttle 不会将您的文件上传到远程服务器，而是使用现代 Web 技术 - Canvas API、WebAssembly 和 Web Workers - 在您的设备上完成压缩和转换。",
-    "serviceP2": "Image Shuttle 由 ShuttleLab 打造，支持 JPEG、PNG、WebP 和 AVIF 格式，采用智能压缩算法，在保持视觉质量的同时将文件大小减少高达 80%。无论您需要为网页优化图片、减少存储空间还是在格式之间转换，Image Shuttle 都能以零隐私风险完成所有操作。",
+    "serviceP1": "Image Shuttle 是一款完全在浏览器中运行的免费在线图片工作台。它从一个压缩工具成长为四合一：JPEG/PNG/WebP/AVIF 压缩与格式转换器；带调整、滤镜、裁剪和精确像素调整尺寸的图片编辑器；拥有 20 种网格布局的拼图制作；以及带图层、模板与免费自定义画布尺寸的设计工坊。与传统在线工具不同，任何文件都不会被上传 —— 所有处理通过 Canvas API、WebAssembly 和 Web Workers 在你的设备上完成。",
+    "serviceP2": "需要 512×512 的头像？裁剪到 1:1，在调整尺寸里输入 512，导出 —— 精确到这个尺寸，格式和压缩质量都由你选择。永远没有水印，永远不需要注册，其他工具收费的自定义画布尺寸在这里免费。无论是为网页优化图片、给截图加标注、制作社交封面还是把照片拼成网格，Image Shuttle 都能以零隐私风险完成。",
     "safe": "100% 隐私安全",
     "safeDesc": "所有图片处理都在浏览器中本地完成。不会上传文件，不会收集数据，第三方无法访问您的图片。",
     "privacy": "无需注册",
@@ -250,7 +250,8 @@
       "punch": "浓郁",
       "soft": "柔和",
       "dramatic": "戏剧",
-      "pixel": "像素化"
+      "pixel": "像素化",
+      "invert": "反色"
     },
     "text": {
       "sample": "双击编辑文字",
@@ -301,7 +302,27 @@
       "apply": "应用",
       "cancel": "取消",
       "clear": "清除裁剪",
-      "rotateFirst": "请先把旋转归零再裁剪。"
+      "rotateFirst": "请先把旋转归零再裁剪。",
+      "free": "自由",
+      "aspect": "宽高比"
+    },
+    "autoEnhance": "自动增强",
+    "compare": "对比",
+    "compareHint": "按住查看原图",
+    "sections": {
+      "basic": "基础",
+      "advanced": "高级",
+      "exposure": "曝光",
+      "color": "颜色"
+    },
+    "rotate": {
+      "title": "旋转与翻转"
+    },
+    "resize": {
+      "title": "调整尺寸",
+      "start": "设置输出尺寸",
+      "current": "输出：{w} × {h} px",
+      "resized": "已调整"
     }
   },
   "collage": {

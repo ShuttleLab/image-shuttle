@@ -136,6 +136,35 @@ export const HOWTOS: HowTo[] = [
     ],
   },
   {
+    id: "resize-exact",
+    name: {
+      zh: "如何把图片调整为精确尺寸（如 512×512）",
+      en: "How to resize an image to exact dimensions (e.g. 512×512)",
+    },
+    steps: [
+      {
+        zh: "打开图片编辑器（image.shuttlelab.org/editor）并上传图片",
+        en: "Open the Photo Editor (image.shuttlelab.org/editor) and upload your image",
+      },
+      {
+        zh: "在「裁剪」中选择 1:1 等目标比例，拖动选框确定构图后应用",
+        en: "In Crop, pick the target aspect ratio (e.g. 1:1), drag the selection to frame the image, then apply",
+      },
+      {
+        zh: "打开「调整尺寸」，输入目标宽度 512 —— 高度会按锁定比例自动联动",
+        en: "Open Resize and type the target width 512 — the height syncs automatically via the aspect-ratio lock",
+      },
+      {
+        zh: "应用后底部状态栏会显示输出尺寸（512 × 512 px）",
+        en: "After applying, the bottom status bar shows the output size (512 × 512 px)",
+      },
+      {
+        zh: "点击「下载」，选择 PNG/JPG/WebP 格式与压缩质量后导出",
+        en: "Click Download, choose PNG/JPG/WebP format and compression quality, and export",
+      },
+    ],
+  },
+  {
     id: "convert-format",
     name: {
       zh: "如何转换图片格式",
@@ -241,6 +270,46 @@ export const FAQS: FaqItem[] = [
     a: {
       zh: "WebP 比 JPEG 小 25-35%，比 PNG 小 26%，支持透明度和动画。AVIF 是更新的格式，比 JPEG 小约 50%，支持 HDR 和更广的色域。两者都是现代网页的推荐格式。",
       en: "WebP is 25-35% smaller than JPEG and 26% smaller than PNG, supporting transparency and animation. AVIF is a newer format, approximately 50% smaller than JPEG, supporting HDR and wider color gamuts. Both are recommended formats for modern web.",
+    },
+  },
+  {
+    q: {
+      zh: "可以把图片精确调整到指定尺寸吗（比如 512×512）？",
+      en: "Can I resize an image to exact dimensions like 512×512?",
+    },
+    a: {
+      zh: "可以。在图片编辑器中先用裁剪选择 1:1 等比例，再打开「调整尺寸」输入目标宽度（如 512），高度会按锁定比例自动联动，应用后导出即得到精确尺寸的图片。导出时还能选择 PNG/JPG/WebP 格式和压缩质量。",
+      en: "Yes. In the Photo Editor, crop to the aspect ratio you need (e.g. 1:1), open Resize and type the target width (such as 512) — the height syncs automatically with the aspect-ratio lock. Apply and export to get exactly that size, with your choice of PNG/JPG/WebP format and compression quality.",
+    },
+  },
+  {
+    q: {
+      zh: "图片编辑器支持哪些调整和滤镜？",
+      en: "What adjustments and filters does the Photo Editor support?",
+    },
+    a: {
+      zh: "调整项包括亮度、对比度、饱和度、色相、模糊、锐化、暗角和颗粒，外加黑白/怀旧/反色开关；另有 12 个一键滤镜（黑白、胶片黑、复古、暖调、冷调、褪色、浓郁、柔和、戏剧等）。还可以添加文字（9 种字体含中文）、96 个 emoji 贴纸和 6 种形状，全部支持拖拽变换与撤销重做。",
+      en: "Adjustments cover brightness, contrast, saturation, hue, blur, sharpen, vignette and grain, plus grayscale/sepia/invert toggles — and 12 one-click filter presets (B&W, Noir, Vintage, Warm, Cool, Fade, Punch, Soft, Dramatic and more). You can also add text (9 font stacks including Chinese), 96 emoji stickers and 6 shape types, all draggable with full undo/redo.",
+    },
+  },
+  {
+    q: {
+      zh: "拼图制作支持哪些布局？",
+      en: "What layouts does the Collage Maker support?",
+    },
+    a: {
+      zh: "内置 20 种程序化布局：规则网格（2×2 到 4×2）、主图+副图的焦点构图、不对称马赛克等，支持 6 种画布比例（1:1 到 9:16）。间距、外边距、圆角和背景色都可调，每个格子里的照片还能拖动平移和缩放，最终按 2000px 宽度高清导出。",
+      en: "20 programmatic layouts are built in: regular grids (2×2 up to 4×2), feature-photo compositions and asymmetric mosaics, across 6 canvas ratios (1:1 to 9:16). Spacing, outer margin, corner radius and background color are all adjustable; photos can be panned and zoomed inside each cell, and the result exports at 2000px width.",
+    },
+  },
+  {
+    q: {
+      zh: "设计工坊的自定义画布尺寸收费吗？",
+      en: "Do custom canvas sizes in the Design Studio cost anything?",
+    },
+    a: {
+      zh: "完全免费。任意 64–4096 像素的自定义宽高、8 种社交媒体尺寸预设（OG 图、YouTube 缩略图、Instagram、Story 等）、图层系统、渐变背景和 10 个起步模板都不收费，导出也没有水印 —— 这些在很多同类工具里都是付费功能。",
+      en: "Completely free. Custom width/height from 64 to 4096 pixels, 8 social-media size presets (OG image, YouTube thumbnail, Instagram, Story and more), the layer system, gradient backgrounds and 10 starter templates cost nothing, and exports never carry a watermark — features many competitors paywall.",
     },
   },
   {

@@ -89,11 +89,16 @@ export function ExportPanel({
   getRegion,
   fileName,
   defaultFormat = "image/png",
+  pixelRatioOverride,
+  sizeLabel,
 }: {
   getStage: () => Konva.Stage | null;
   getRegion?: () => { x: number; y: number; width: number; height: number } | undefined;
   fileName: string;
   defaultFormat?: ExportFormat;
+  /** When set (e.g. after a Resize), exports at exactly this ratio and hides the 1-3x buttons. */
+  pixelRatioOverride?: number;
+  sizeLabel?: string;
 }) {
   const t = useTranslations("editor");
   const [format, setFormat] = useState<ExportFormat>(defaultFormat);
@@ -115,7 +120,7 @@ export function ExportPanel({
       const size = await exportAndDownload(stage, {
         format,
         quality,
-        pixelRatio: scale,
+        pixelRatio: pixelRatioOverride ?? scale,
         region: getRegion?.(),
         fileName,
       });
@@ -146,20 +151,24 @@ export function ExportPanel({
       {format !== "image/png" && (
         <SliderRow label={t("quality")} value={quality} min={10} max={100} onChange={setQuality} format={(v) => `${v}%`} />
       )}
-      <div className="flex flex-wrap gap-1.5">
-        {[1, 2, 3].map((s) => (
-          <Button
-            key={s}
-            type="button"
-            size="sm"
-            variant={scale === s ? "default" : "outline"}
-            className="h-8 px-3 text-xs"
-            onClick={() => setScale(s)}
-          >
-            {s}x
-          </Button>
-        ))}
-      </div>
+      {pixelRatioOverride !== undefined ? (
+        sizeLabel && <p className="text-xs text-muted-foreground font-mono">{sizeLabel}</p>
+      ) : (
+        <div className="flex flex-wrap gap-1.5">
+          {[1, 2, 3].map((s) => (
+            <Button
+              key={s}
+              type="button"
+              size="sm"
+              variant={scale === s ? "default" : "outline"}
+              className="h-8 px-3 text-xs"
+              onClick={() => setScale(s)}
+            >
+              {s}x
+            </Button>
+          ))}
+        </div>
+      )}
       <Button type="button" className="w-full h-10" onClick={handleExport} disabled={busy}>
         {busy ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}
         {t("download")}

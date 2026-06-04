@@ -37,7 +37,7 @@
   },
   "home": {
     "title": "Image Shuttle",
-    "subtitle": "Compress and convert images directly in your browser. No uploads, no server — 100% private.",
+    "subtitle": "The free, private image studio in your browser — compress, convert, edit, resize, collage and design. No uploads, no watermark.",
     "cta": "Start Compressing",
     "secondaryCta": "Learn More",
     "feature1Title": "100% Private",
@@ -72,7 +72,7 @@
     "howDifferentP1": "Traditional image compression tools like TinyPNG and Compressor.io require you to upload your images to their servers for processing. While convenient, this approach raises privacy concerns — your photos, designs, and documents pass through third-party infrastructure. For businesses handling sensitive content, this can be a compliance issue. Image Shuttle takes a fundamentally different approach: all processing happens locally in your browser using the Canvas API, WebAssembly, and Web Workers. Your files never leave your device, making it ideal for privacy-conscious users and organizations.",
     "howDifferentP2": "Image Shuttle also stands out with its batch processing capabilities. While many free tools limit you to one image at a time, Image Shuttle uses your device's CPU cores (via navigator.hardwareConcurrency) to process multiple images in parallel. Combined with support for JPEG, PNG, WebP, and AVIF formats, plus a real-time before/after comparison slider powered by react-compare-slider, Image Shuttle provides a professional-grade compression workflow without any cost or registration.",
     "modulesHeading": "A complete image studio",
-    "modulesSubtitle": "Editor, collage and design — all private, all free, no watermark."
+    "modulesSubtitle": "Compressor, photo editor, collage maker and design studio — all on-device, all free, no watermark."
   },
   "compressor": {
     "dropzoneTitle": "Drop images here or click to browse",
@@ -114,10 +114,10 @@
   },
   "about": {
     "heroTitle": "About Image Shuttle",
-    "heroSubtitle": "A fast, private, browser-based image compression tool by ShuttleLab",
+    "heroSubtitle": "A free, private, browser-based image studio by ShuttleLab — compress, edit, collage and design",
     "serviceTitle": "What is Image Shuttle?",
-    "serviceP1": "Image Shuttle is a free online image compression and format conversion tool that processes everything directly in your browser. Unlike traditional image compressors that upload your files to remote servers, Image Shuttle uses modern web technologies — Canvas API, WebAssembly, and Web Workers — to compress and convert your images without ever leaving your device.",
-    "serviceP2": "Built by ShuttleLab, Image Shuttle supports JPEG, PNG, WebP, and AVIF formats with intelligent compression algorithms that reduce file size by up to 80% while maintaining visual quality. Whether you need to optimize images for the web, reduce storage space, or convert between formats, Image Shuttle handles it all with zero privacy risk.",
+    "serviceP1": "Image Shuttle is a free online image studio that runs entirely in your browser. It started as a compressor and has grown into four tools in one: a compressor/converter for JPEG, PNG, WebP and AVIF; a photo editor with adjustments, filters, crop and exact-pixel resize; a collage maker with 20 grid layouts; and a design studio with layers, templates and free custom canvas sizes. Unlike traditional online tools, nothing is ever uploaded — all processing uses the Canvas API, WebAssembly and Web Workers on your device.",
+    "serviceP2": "Need a 512×512 avatar? Crop to 1:1, type 512 into Resize, and export — at exactly that size, with the format and compression quality you choose. There is never a watermark, never an account requirement, and custom canvas sizes that other tools paywall are free here. Whether you are optimizing images for the web, annotating screenshots, building social covers or stitching photos into a grid, Image Shuttle handles it with zero privacy risk.",
     "safe": "100% Private",
     "safeDesc": "All image processing happens locally in your browser. No files are uploaded, no data is collected, and no third parties can access your images.",
     "privacy": "No Account Required",
@@ -250,7 +250,8 @@
       "punch": "Punch",
       "soft": "Soft",
       "dramatic": "Dramatic",
-      "pixel": "Pixel"
+      "pixel": "Pixel",
+      "invert": "Invert"
     },
     "text": {
       "sample": "Double-click to edit",
@@ -301,7 +302,27 @@
       "apply": "Apply",
       "cancel": "Cancel",
       "clear": "Remove crop",
-      "rotateFirst": "Reset rotation to 0° before cropping."
+      "rotateFirst": "Reset rotation to 0° before cropping.",
+      "free": "Free",
+      "aspect": "Aspect ratio"
+    },
+    "autoEnhance": "Auto enhance",
+    "compare": "Compare",
+    "compareHint": "Hold to see the original",
+    "sections": {
+      "basic": "Basic",
+      "advanced": "Advanced",
+      "exposure": "Exposure",
+      "color": "Color"
+    },
+    "rotate": {
+      "title": "Rotate & flip"
+    },
+    "resize": {
+      "title": "Resize",
+      "start": "Set output size",
+      "current": "Output: {w} × {h} px",
+      "resized": "resized"
     }
   },
   "collage": {

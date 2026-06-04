@@ -3,10 +3,10 @@
 <div align="center">
   <h1>Image Shuttle</h1>
   <p>
-    <strong>Free, Private & Browser-Based Image Compression</strong>
+    <strong>Free, Private & Browser-Based Image Studio</strong>
   </p>
   <p>
-    Compress and convert images between JPEG, PNG, WebP, and AVIF directly in your browser — no uploads, no servers.
+    Compress, edit, resize, collage and design images directly in your browser — no uploads, no servers, no watermark.
   </p>
 </div>
 
@@ -21,7 +21,7 @@
 
 ## About
 
-**Image Shuttle** is a privacy-first image compression tool that processes everything entirely within your browser using the Canvas API and WebAssembly. Unlike traditional online compressors that upload your files to remote servers, Image Shuttle keeps your images on your device — making it safe for personal photos, confidential designs, and sensitive business assets.
+**Image Shuttle** is a privacy-first image studio — compressor, photo editor, collage maker and design studio in one that processes everything entirely within your browser using the Canvas API and WebAssembly. Unlike traditional online compressors that upload your files to remote servers, Image Shuttle keeps your images on your device — making it safe for personal photos, confidential designs, and sensitive business assets.
 
 The project is inspired by Google Chrome Labs' [Squoosh](https://squoosh.app/) but is built independently with Next.js and modern web standards for better SEO, deployment flexibility, and PWA support.
 
@@ -32,6 +32,9 @@ The project is inspired by Google Chrome Labs' [Squoosh](https://squoosh.app/) b
 - **WebAssembly PNG Quantization**: PNG compression uses `libimagequant-wasm` for 50-80% size reduction while preserving transparency.
 - **Batch Processing**: Compress dozens of images in parallel using Web Workers (auto-tuned to your CPU core count).
 - **Before/After Comparison**: Real-time visual comparison slider to verify quality before downloading.
+- **Photo Editor**: FotoJet-style adjustments, 12 filters, crop with aspect presets, and exact-pixel Resize (type 512 → export 512×512).
+- **Collage Maker**: 20 programmatic grid layouts, adjustable spacing/radius/background, per-cell pan & zoom.
+- **Design Studio**: layered canvas with templates, gradients, and FREE custom sizes (64–4096 px).
 - **Offline-Capable PWA**: Install to your home screen and compress images without an internet connection.
 - **Bilingual UI**: Native English and Chinese interfaces with full SEO localization.
 

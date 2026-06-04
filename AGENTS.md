@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Image Shuttle — a free, browser-based image compression and format conversion tool. Built with Next.js 16 + React 19, deployed to Cloudflare Workers via OpenNext.
+Image Shuttle — a free, browser-based image studio: compression/conversion, FotoJet-style photo editor (/editor), collage maker (/collage) and design studio (/design). Built with Next.js 16 + React 19, deployed to Cloudflare Workers via OpenNext.
 
 ## Commands
 

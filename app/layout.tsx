@@ -32,8 +32,22 @@ const structuredData = {
   applicationCategory: "MultimediaApplication",
   operatingSystem: "Web",
   description:
-    "Compress and convert images directly in your browser. No uploads, no server — 100% private.",
+    "Free online image studio: compress, convert, edit, resize to exact pixels, make collages and design graphics — entirely in your browser. No uploads, no watermark, 100% private.",
   url: "https://image.shuttlelab.org",
+  featureList: [
+    "Compress JPEG, PNG, WebP and AVIF images with quality control",
+    "Convert images between JPEG, PNG, WebP and AVIF",
+    "Batch compression with parallel processing",
+    "Photo editor: brightness, contrast, saturation, hue, blur, sharpen, vignette and 12 one-click filters",
+    "Crop with aspect-ratio presets and exact pixel dimensions",
+    "Resize images to exact dimensions (e.g. 512x512) with aspect-ratio lock",
+    "Add text, emoji stickers and shapes to photos",
+    "Photo collage maker with 20 grid layouts and adjustable spacing",
+    "Graphic design studio with free custom canvas sizes, layers, gradients and templates",
+    "Export as PNG, JPG or WebP with compression quality control",
+    "Works offline as an installable PWA",
+    "No account, no watermark, all processing on-device",
+  ],
   offers: [
     { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD" },
   ],
@@ -41,9 +55,9 @@ const structuredData = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://image.shuttlelab.org/"),
-  title: "Image Shuttle | Free Online Image Compressor",
+  title: "Image Shuttle | Free Online Image Studio — Compress, Edit, Collage & Design",
   description:
-    "Compress and convert images directly in your browser. No uploads, no server — 100% private. Supports JPEG, PNG, WebP, AVIF.",
+    "Compress, convert, edit, resize, collage and design images entirely in your browser. Exact pixel resizing, filters, text, layers — no uploads, no watermark, 100% private and free.",
   manifest: "/manifest.webmanifest",
   // verification: {
   //   google: "<paste-google-search-console-verification-code-here>",
