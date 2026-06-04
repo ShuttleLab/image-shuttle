@@ -29,6 +29,10 @@ export default function CollageApp() {
 
   const stageRef = useRef<Konva.Stage>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  // cell index that triggered the picker; null = picker opened from the pool tile
+  const pendingCellRef = useRef<number | null>(null);
+  const photoSeq = useRef(0);
   const [containerW, setContainerW] = useState(720);
 
   const logicalW = EXPORT_W;
@@ -50,27 +54,37 @@ export default function CollageApp() {
     setSelectedCell(null);
   };
 
-  const addPhotos = useCallback((files: File[]) => {
-    files.forEach((file) => {
+  // Add photos to the pool and place them into cells. Slot order is computed
+  // up-front (target cell first, then remaining empty cells) so async image
+  // loads can't race each other into the same cell.
+  const addPhotos = useCallback((files: File[], targetIdx: number | null = null) => {
+    const empties = cells.map((c, i) => (c.photoId === null ? i : -1)).filter((i) => i !== -1);
+    const order = targetIdx !== null ? [targetIdx, ...empties.filter((i) => i !== targetIdx)] : empties;
+    files.forEach((file, fi) => {
+      const slot = order[fi];
       const url = URL.createObjectURL(file);
       const el = new window.Image();
       el.onload = () => {
-        setPool((p) => {
-          const photo = { id: `p-${Date.now()}-${p.length}`, url, el };
-          // auto-fill first empty cell
-          setCells((cs) => {
-            const idx = cs.findIndex((c) => c.photoId === null);
-            if (idx === -1) return cs;
-            const next = [...cs];
-            next[idx] = { ...next[idx], photoId: photo.id };
-            return next;
-          });
-          return [...p, photo];
-        });
+        const photo = { id: `p-${++photoSeq.current}`, url, el };
+        setPool((p) => [...p, photo]);
+        if (slot !== undefined) {
+          setCells((cur) => cur.map((c, i) => (i === slot ? { photoId: photo.id, offsetX: 0, offsetY: 0, zoom: 1 } : c)));
+        }
       };
       el.src = url;
     });
-  }, []);
+  }, [cells]);
+
+  const openPickerForCell = (i: number) => {
+    pendingCellRef.current = i;
+    fileInputRef.current?.click();
+  };
+
+  const handlePicked = (files: File[]) => {
+    const target = pendingCellRef.current;
+    pendingCellRef.current = null;
+    addPhotos(files, target);
+  };
 
   const assignToCell = (cellIdx: number, photoId: string) =>
     setCells((cs) => cs.map((c, i) => (i === cellIdx ? { ...c, photoId, offsetX: 0, offsetY: 0, zoom: 1 } : c)));
@@ -110,8 +124,16 @@ export default function CollageApp() {
                       ctx.arcTo(0, 0, innerW, 0, r);
                       ctx.closePath();
                     }}
-                    onClick={() => setSelectedCell(i)}
-                    onTap={() => setSelectedCell(i)}
+                    onClick={() => {
+                      setSelectedCell(i);
+                      if (!st?.photoId) openPickerForCell(i);
+                    }}
+                    onTap={() => {
+                      setSelectedCell(i);
+                      if (!st?.photoId) openPickerForCell(i);
+                    }}
+                    onMouseEnter={(e) => { e.target.getStage()!.container().style.cursor = "pointer"; }}
+                    onMouseLeave={(e) => { e.target.getStage()!.container().style.cursor = "default"; }}
                   >
                     <Rect width={innerW} height={innerH} fill={photo ? "#00000010" : selectedCell === i ? "#7c3aed22" : "#00000014"} />
                     {photo ? (
@@ -127,14 +149,29 @@ export default function CollageApp() {
           </Stage>
         </div>
 
+        {/* shared picker: triggered by empty cells or the pool tile */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          multiple
+          className="hidden"
+          onChange={(e) => {
+            if (e.target.files?.length) handlePicked([...e.target.files]);
+            e.target.value = "";
+          }}
+        />
+
         {/* photo pool */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
-          <label className="shrink-0">
-            <input type="file" accept="image/*" multiple className="hidden" onChange={(e) => e.target.files && addPhotos([...e.target.files])} />
-            <span className="flex items-center justify-center size-16 rounded-lg border-2 border-dashed cursor-pointer hover:border-primary text-muted-foreground">
-              <ImagePlus className="size-5" />
-            </span>
-          </label>
+          <button
+            type="button"
+            className="shrink-0 flex items-center justify-center size-16 rounded-lg border-2 border-dashed cursor-pointer hover:border-primary text-muted-foreground"
+            onClick={() => { pendingCellRef.current = null; fileInputRef.current?.click(); }}
+            aria-label={t("poolHint")}
+          >
+            <ImagePlus className="size-5" />
+          </button>
           {pool.map((p) => (
             <button
               key={p.id}
