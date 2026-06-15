@@ -1,17 +1,40 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { ToolThinZh } from "@/components/tool-thin-zh";
 
-export const metadata: Metadata = {
-  title:
-    "Batch Image Compression — Compress Multiple Images at Once | Image Shuttle",
-  description:
-    "Compress dozens of images at once with batch compression. JPG, PNG, WebP supported. Parallel Web Worker processing, ZIP download. Free, fast, 100% private.",
-  alternates: {
-    canonical: "/tools/batch-compress",
-  },
-};
+const PATH = "/tools/batch-compress";
+type Props = { params: Promise<{ locale: string }> };
 
-export default function BatchCompressPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const zh = locale === "zh";
+  return {
+    title: zh
+      ? "批量压缩图片 — 一次压缩多张 | Image Shuttle"
+      : "Batch Image Compression — Compress Multiple Images at Once | Image Shuttle",
+    description: zh
+      ? "一次批量压缩几十张图片，支持 JPG、PNG、WebP。多线程 Web Worker 并行处理，可打包 ZIP 下载。免费、快速、100% 私密。"
+      : "Compress dozens of images at once with batch compression. JPG, PNG, WebP supported. Parallel Web Worker processing, ZIP download. Free, fast, 100% private.",
+    alternates: {
+      canonical: zh ? `/zh${PATH}` : PATH,
+      languages: { en: PATH, zh: `/zh${PATH}`, "x-default": PATH },
+    },
+  };
+}
+
+export default async function BatchCompressPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  if (locale !== "en") {
+    return (
+      <ToolThinZh
+        title="批量压缩图片（一次多张）"
+        lead="一次批量压缩几十张图片，支持 JPG、PNG、WebP；多线程并行处理并可打包 ZIP 下载。全程在你的浏览器本地完成，图片不上传任何服务器。"
+        guideHref={PATH}
+      />
+    );
+  }
   const techArticleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",

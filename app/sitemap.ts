@@ -43,6 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "monthly" as const,
     priority: 0.7,
+    alternates: {
+      languages: {
+        en: `${baseUrl}${path}`,
+        zh: `${baseUrl}/zh${path}`,
+        "x-default": `${baseUrl}${path}`,
+      },
+    },
   }));
 
   return [...bilingual, ...tools];

@@ -1,16 +1,40 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { ToolThinZh } from "@/components/tool-thin-zh";
 
-export const metadata: Metadata = {
-  title: "Compress PNG Online — Free PNG Image Compressor | Image Shuttle",
-  description:
-    "Compress PNG images online for free. Reduce PNG file size by 30-70% while preserving transparency. No upload, no registration, 100% private browser-based compression.",
-  alternates: {
-    canonical: "/tools/compress-png",
-  },
-};
+const PATH = "/tools/compress-png";
+type Props = { params: Promise<{ locale: string }> };
 
-export default function CompressPngPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const zh = locale === "zh";
+  return {
+    title: zh
+      ? "在线压缩 PNG — 免费 PNG 压缩器 | Image Shuttle"
+      : "Compress PNG Online — Free PNG Image Compressor | Image Shuttle",
+    description: zh
+      ? "免费在线压缩 PNG 图片，体积减小 30–70% 并保留透明度。无需上传、无需注册，全程在浏览器本地完成，100% 私密。"
+      : "Compress PNG images online for free. Reduce PNG file size by 30-70% while preserving transparency. No upload, no registration, 100% private browser-based compression.",
+    alternates: {
+      canonical: zh ? `/zh${PATH}` : PATH,
+      languages: { en: PATH, zh: `/zh${PATH}`, "x-default": PATH },
+    },
+  };
+}
+
+export default async function CompressPngPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  if (locale !== "en") {
+    return (
+      <ToolThinZh
+        title="在线压缩 PNG（免费）"
+        lead="免费压缩 PNG 图片，体积减小 30–70%，并完整保留透明通道。全程在你的浏览器本地完成，图片不上传任何服务器。"
+        guideHref={PATH}
+      />
+    );
+  }
   const techArticleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",

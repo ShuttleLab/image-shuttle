@@ -1,16 +1,40 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { ToolThinZh } from "@/components/tool-thin-zh";
 
-export const metadata: Metadata = {
-  title: "Convert Image to AVIF — Free Online AVIF Converter | Image Shuttle",
-  description:
-    "Convert JPG, PNG, and WebP images to AVIF format online for free. Get 50% smaller files than JPG with next-generation AVIF compression. No upload, 100% private.",
-  alternates: {
-    canonical: "/tools/convert-to-avif",
-  },
-};
+const PATH = "/tools/convert-to-avif";
+type Props = { params: Promise<{ locale: string }> };
 
-export default function ConvertToAvifPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const zh = locale === "zh";
+  return {
+    title: zh
+      ? "图片转 AVIF — 免费在线 AVIF 转换器 | Image Shuttle"
+      : "Convert Image to AVIF — Free Online AVIF Converter | Image Shuttle",
+    description: zh
+      ? "免费在线把 JPG、PNG、WebP 转成 AVIF，借助新一代 AVIF 压缩，体积比 JPG 小约 50%。无需上传，100% 私密。"
+      : "Convert JPG, PNG, and WebP images to AVIF format online for free. Get 50% smaller files than JPG with next-generation AVIF compression. No upload, 100% private.",
+    alternates: {
+      canonical: zh ? `/zh${PATH}` : PATH,
+      languages: { en: PATH, zh: `/zh${PATH}`, "x-default": PATH },
+    },
+  };
+}
+
+export default async function ConvertToAvifPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  if (locale !== "en") {
+    return (
+      <ToolThinZh
+        title="图片转 AVIF（免费在线）"
+        lead="把 JPG、PNG、WebP 转成 AVIF，借助新一代压缩，体积可比 JPG 小约 50%。全程在你的浏览器本地完成，图片不上传任何服务器。"
+        guideHref={PATH}
+      />
+    );
+  }
   const techArticleSchema = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
