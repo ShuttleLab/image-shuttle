@@ -19,6 +19,8 @@
 
 </div>
 
+**🔗 Try it live: [Free online image compressor & editor](https://image.shuttlelab.org)** — compress, resize, edit and design images right in your browser, no watermark.
+
 ## About
 
 **Image Shuttle** is a privacy-first image studio — compressor, photo editor, collage maker and design studio in one that processes everything entirely within your browser using the Canvas API and WebAssembly. Unlike traditional online image tools that upload your files to remote servers, Image Shuttle keeps your images on your device — making it safe for personal photos, confidential designs, and sensitive business assets.
