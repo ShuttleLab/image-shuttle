@@ -49,7 +49,7 @@ export default function Footer() {
             </a>
           </div>
           <div className="flex flex-col items-center gap-1.5 pt-1">
-            <span className="text-xs uppercase tracking-wider text-muted-foreground/70">{t("common.alsoFrom")}</span>
+            <span className="text-xs uppercase tracking-wider text-muted-foreground">{t("common.alsoFrom")}</span>
             <div className="flex items-center gap-x-2 gap-y-1 flex-wrap justify-center max-w-3xl">
               {SIBLING_SITES.filter((s) => s.host !== CURRENT_HOST).map((s, idx, arr) => (
                 <span key={s.host} className="flex items-center gap-x-2">
