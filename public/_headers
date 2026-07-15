@@ -1,0 +1,8 @@
+# Security headers (moved from next.config `headers()`, which is unsupported
+# under output:export). Applied by Cloudflare static-asset serving.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

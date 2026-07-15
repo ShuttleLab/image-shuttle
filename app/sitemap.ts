@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { locales, defaultLocale } from "@/lib/i18n/config";
 
+export const dynamic = "force-static";
+
 const baseUrl = "https://image.shuttlelab.org";
 
 // URL for a path in a given locale (en stays at the root, others are prefixed).

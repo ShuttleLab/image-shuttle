@@ -1,9 +1,9 @@
+# Static export -> Cloudflare Workers Static Assets (assets-only, no Worker code).
+# Build with `npm run build` (next build + postbuild promotes out/en -> out),
+# deploy with `wrangler deploy`. No SSR, so no per-request CPU / 1101 errors.
 name = "image-shuttle"
 compatibility_date = "2026-01-01"
-compatibility_flags = ["nodejs_compat"]
-main = ".open-next/worker.js"
-assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
-[observability.logs]
-enabled = true
-invocation_logs = true
+[assets]
+directory = "./out"
+not_found_handling = "404-page"
