@@ -128,7 +128,7 @@
     "privacy": "无需注册",
     "privacyDesc": "立即开始压缩 - 无需注册、无需邮箱、无需追踪。只需拖放图片即可开始。",
     "ttl": "开源精神",
-    "ttlDesc": "Image Shuttle 以 MIT 协议开源，基于现代 Web 标准构建，全部处理在客户端完成。",
+    "ttlDesc": "Image Shuttle 以 AGPL-3.0 协议开源，基于现代 Web 标准构建，全部处理在客户端完成。",
     "fast": "极速处理",
     "fastDesc": "利用 Web Workers 进行并行处理，利用 WebAssembly 进行 PNG 优化，Image Shuttle 以原生速度提供专业级压缩。",
     "useCases": "谁在使用 Image Shuttle？",

@@ -128,7 +128,7 @@
     "privacy": "Nessun account richiesto",
     "privacyDesc": "Inizia a comprimere immediatamente: nessuna registrazione, nessuna email, nessun tracciamento. Rilascia le tue immagini e via.",
     "ttl": "Spirito open source",
-    "ttlDesc": "Image Shuttle è open source sotto licenza MIT, costruito su moderni standard web con tutta l'elaborazione svolta lato client.",
+    "ttlDesc": "Image Shuttle è open source sotto licenza AGPL-3.0, costruito su moderni standard web con tutta l'elaborazione svolta lato client.",
     "fast": "Velocissimo",
     "fastDesc": "Sfruttando i Web Worker per l'elaborazione parallela e WebAssembly per l'ottimizzazione dei PNG, Image Shuttle offre una compressione di livello professionale a velocità nativa.",
     "useCases": "Chi usa Image Shuttle?",

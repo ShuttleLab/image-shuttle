@@ -128,7 +128,7 @@
     "privacy": "Không cần tài khoản",
     "privacyDesc": "Bắt đầu nén ngay lập tức — không đăng ký, không email, không theo dõi. Chỉ cần thả ảnh vào và bắt đầu.",
     "ttl": "Tinh thần mã nguồn mở",
-    "ttlDesc": "Image Shuttle là mã nguồn mở theo giấy phép MIT, được xây dựng trên các tiêu chuẩn web hiện đại với mọi xử lý thực hiện phía máy khách.",
+    "ttlDesc": "Image Shuttle là mã nguồn mở theo giấy phép AGPL-3.0, được xây dựng trên các tiêu chuẩn web hiện đại với mọi xử lý thực hiện phía máy khách.",
     "fast": "Nhanh như chớp",
     "fastDesc": "Tận dụng Web Workers để xử lý song song và WebAssembly để tối ưu PNG, Image Shuttle mang đến khả năng nén chuyên nghiệp với tốc độ gốc.",
     "useCases": "Ai đang dùng Image Shuttle?",

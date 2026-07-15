@@ -128,7 +128,7 @@
     "privacy": "アカウント不要",
     "privacyDesc": "すぐに圧縮を開始できます — 登録もメールもトラッキングも不要。画像をドロップするだけです。",
     "ttl": "オープンソースの精神",
-    "ttlDesc": "Image Shuttle は MIT ライセンスのオープンソースで、最新のウェブ標準の上に構築され、すべての処理をクライアントサイドで行います。",
+    "ttlDesc": "Image Shuttle は AGPL-3.0 ライセンスのオープンソースで、最新のウェブ標準の上に構築され、すべての処理をクライアントサイドで行います。",
     "fast": "圧倒的な速さ",
     "fastDesc": "並列処理には Web Workers を、PNG 最適化には WebAssembly を活用し、Image Shuttle はネイティブ並みの速度でプロ品質の圧縮を実現します。",
     "useCases": "Image Shuttle を使っているのは？",

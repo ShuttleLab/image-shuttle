@@ -128,7 +128,7 @@
     "privacy": "Tanpa Perlu Akun",
     "privacyDesc": "Mulai mengompres seketika — tanpa pendaftaran, tanpa email, tanpa pelacakan. Cukup jatuhkan gambar Anda dan mulai.",
     "ttl": "Semangat Open Source",
-    "ttlDesc": "Image Shuttle bersifat open source di bawah lisensi MIT, dibangun di atas standar web modern dengan semua pemrosesan dilakukan di sisi klien.",
+    "ttlDesc": "Image Shuttle bersifat open source di bawah lisensi AGPL-3.0, dibangun di atas standar web modern dengan semua pemrosesan dilakukan di sisi klien.",
     "fast": "Sangat Cepat",
     "fastDesc": "Memanfaatkan Web Workers untuk pemrosesan paralel dan WebAssembly untuk optimasi PNG, Image Shuttle menghadirkan kompresi tingkat profesional dengan kecepatan native.",
     "useCases": "Siapa yang Menggunakan Image Shuttle?",

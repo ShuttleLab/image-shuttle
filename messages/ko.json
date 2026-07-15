@@ -128,7 +128,7 @@
     "privacy": "계정 불필요",
     "privacyDesc": "바로 압축을 시작하세요 — 가입도, 이메일도, 추적도 없습니다. 이미지를 끌어다 놓으면 끝입니다.",
     "ttl": "오픈소스 정신",
-    "ttlDesc": "Image Shuttle은 MIT 라이선스 오픈소스로, 최신 웹 표준을 기반으로 만들어졌으며 모든 처리를 클라이언트 측에서 수행합니다.",
+    "ttlDesc": "Image Shuttle은 AGPL-3.0 라이선스 오픈소스로, 최신 웹 표준을 기반으로 만들어졌으며 모든 처리를 클라이언트 측에서 수행합니다.",
     "fast": "번개처럼 빠르게",
     "fastDesc": "병렬 처리를 위한 Web Workers와 PNG 최적화를 위한 WebAssembly를 활용해, Image Shuttle은 전문가급 압축을 네이티브 속도로 제공합니다.",
     "useCases": "누가 Image Shuttle을 사용하나요?",
