@@ -1,8 +1,12 @@
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const APP_CACHE = `image-shuttle-${CACHE_VERSION}`;
 const WASM_CACHE = `image-shuttle-wasm-${CACHE_VERSION}`;
 
-// 19 items: 14 routes + 1 WASM + 4 metadata
+// 19 items: 14 routes + 1 WASM + 4 metadata.
+// Only en + zh are precached for offline-first-visit; the 11 other locales
+// (ja ko es fr de zh-TW pt ar it id vi) are runtime-cached network-first on
+// first navigation (see fetch handler), so they still work offline after one
+// visit without bloating install with 165 extra URLs.
 const PRECACHE_URLS = [
   // Layer 1 + Layer 3 (en)
   "/",
