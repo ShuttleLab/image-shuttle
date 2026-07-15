@@ -56,6 +56,14 @@ export default function Header() {
                 </li>
                 <li className="hidden sm:block">
                   <Link
+                    href="/svg-to-png"
+                    className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
+                  >
+                    {t("svgToPng.navTitle")}
+                  </Link>
+                </li>
+                <li className="hidden sm:block">
+                  <Link
                     href="/about"
                     className="text-sm text-muted-foreground hover:text-foreground font-medium transition-colors"
                   >

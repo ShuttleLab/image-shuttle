@@ -22,6 +22,8 @@ const PRECACHE_URLS = [
   "/zh/collage",
   "/design",
   "/zh/design",
+  "/svg-to-png",
+  "/zh/svg-to-png",
   // Layer 4 (en-only)
   "/tools/compress-jpg",
   "/tools/compress-png",

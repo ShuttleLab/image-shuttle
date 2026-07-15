@@ -105,6 +105,20 @@ export default async function ToolsIndexPage({ params }: Props) {
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Link
+            href={`${base}/svg-to-png`}
+            className="group flex flex-col rounded-xl border border-border bg-card p-5 shadow-sm transition hover:border-primary/40 hover:bg-accent/40"
+          >
+            <h2 className="flex items-center gap-1 font-semibold text-foreground">
+              {zh ? "SVG 转 PNG" : "SVG to PNG"}
+              <ArrowRight className="size-4 shrink-0 -translate-x-1 opacity-0 transition group-hover:translate-x-0 group-hover:opacity-100" />
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {zh
+                ? "把 SVG 转成清晰 PNG，自定义尺寸、图标全套、透明背景。"
+                : "Convert SVG to crisp PNG — custom sizes, icon sets, transparent backgrounds."}
+            </p>
+          </Link>
           {TOOLS.map((tool) => (
             <Link
               key={tool.slug}
