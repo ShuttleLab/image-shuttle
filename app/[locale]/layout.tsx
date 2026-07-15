@@ -3,6 +3,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
+import { getDirection, getOgLocale, localeConfig } from "@/lib/i18n/config";
 import { LayoutShell } from "@/components/layout-shell";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -50,8 +51,11 @@ export async function generateMetadata({
       description: t("subtitle"),
       siteName: "Image Shuttle",
       type: "website",
-      locale: locale === "zh" ? "zh_CN" : "en_US",
-      alternateLocale: locale === "zh" ? ["en_US"] : ["zh_CN"],
+      locale: getOgLocale(locale),
+      alternateLocale: routing.locales
+        .filter((l) => l !== locale)
+        .map((l) => localeConfig[l]?.ogLocale)
+        .filter(Boolean) as string[],
     },
     twitter: {
       card: "summary_large_image",
@@ -70,7 +74,9 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <LayoutShell>{children}</LayoutShell>
+      <div lang={locale} dir={getDirection(locale)} className="contents">
+        <LayoutShell>{children}</LayoutShell>
+      </div>
     </NextIntlClientProvider>
   );
 }

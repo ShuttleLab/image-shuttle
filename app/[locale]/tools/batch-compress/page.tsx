@@ -1,24 +1,23 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { ToolThinZh } from "@/components/tool-thin-zh";
+import { ToolLanding } from "@/components/tool-landing";
+import { getToolContent } from "@/lib/tool-content";
+import { canonicalUrl, hreflangAlternates } from "@/lib/seo";
 
 const PATH = "/tools/batch-compress";
+const SLUG = "batch-compress" as const;
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const zh = locale === "zh";
+  const content = getToolContent(locale, SLUG);
   return {
-    title: zh
-      ? "批量压缩图片 — 一次压缩多张 | Image Shuttle"
-      : "Batch Image Compression — Compress Multiple Images at Once | Image Shuttle",
-    description: zh
-      ? "一次批量压缩几十张图片，支持 JPG、PNG、WebP。多线程 Web Worker 并行处理，可打包 ZIP 下载。免费、快速、100% 私密。"
-      : "Compress dozens of images at once with batch compression. JPG, PNG, WebP supported. Parallel Web Worker processing, ZIP download. Free, fast, 100% private.",
+    title: content.metaTitle,
+    description: content.metaDescription,
     alternates: {
-      canonical: zh ? `/zh${PATH}` : PATH,
-      languages: { en: PATH, zh: `/zh${PATH}`, "x-default": PATH },
+      canonical: canonicalUrl(locale, PATH),
+      languages: hreflangAlternates(PATH),
     },
   };
 }
@@ -28,10 +27,10 @@ export default async function BatchCompressPage({ params }: Props) {
   setRequestLocale(locale);
   if (locale !== "en") {
     return (
-      <ToolThinZh
-        title="批量压缩图片（一次多张）"
-        lead="一次批量压缩几十张图片，支持 JPG、PNG、WebP；多线程并行处理并可打包 ZIP 下载。全程在你的浏览器本地完成，图片不上传任何服务器。"
-        guideHref={PATH}
+      <ToolLanding
+        locale={locale}
+        slug={SLUG}
+        content={getToolContent(locale, SLUG)}
       />
     );
   }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { routing } from "@/i18n/routing";
+import { canonicalUrl, hreflangAlternates } from "@/lib/seo";
 import { SvgToPngApp } from "@/components/svg-to-png-app";
 
-const BASE = "https://image.shuttlelab.org";
 const PATH = "/svg-to-png";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -11,13 +10,12 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "svgToPng" });
-  const canonical = locale === routing.defaultLocale ? `${BASE}${PATH}` : `${BASE}/${locale}${PATH}`;
   return {
     title: t("metaTitle"),
     description: t("metaDesc"),
     alternates: {
-      canonical,
-      languages: { en: `${BASE}${PATH}`, zh: `${BASE}/zh${PATH}`, "x-default": `${BASE}${PATH}` },
+      canonical: canonicalUrl(locale, PATH),
+      languages: hreflangAlternates(PATH),
     },
   };
 }
@@ -26,6 +24,9 @@ export default async function SvgToPngPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const zh = locale === "zh";
+  // Long-form prose exists only in en/zh. Other locales still get the fully
+  // localized tool + H1 + subtitle (from messages), just without an English wall.
+  const showProse = locale === "en" || locale === "zh";
   const t = await getTranslations({ locale, namespace: "svgToPng" });
 
   const steps = zh
@@ -64,7 +65,7 @@ export default async function SvgToPngPage({ params }: Props) {
     name: zh ? "SVG 转 PNG 转换器" : "SVG to PNG Converter",
     applicationCategory: "MultimediaApplication",
     operatingSystem: "Any",
-    url: `${BASE}${locale === "en" ? "" : "/zh"}${PATH}`,
+    url: canonicalUrl(locale, PATH),
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     description: t("metaDesc"),
   };
@@ -87,8 +88,12 @@ export default async function SvgToPngPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      {showProse && (
+        <>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        </>
+      )}
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{t("title")}</h1>
@@ -98,6 +103,8 @@ export default async function SvgToPngPage({ params }: Props) {
           <SvgToPngApp />
         </div>
 
+        {showProse && (
+          <>
         {/* How it works */}
         <section className="mt-16">
           <h2 className="text-2xl font-bold">{zh ? "如何把 SVG 转成 PNG" : "How to Convert SVG to PNG"}</h2>
@@ -154,6 +161,8 @@ export default async function SvgToPngPage({ params }: Props) {
             ))}
           </div>
         </section>
+          </>
+        )}
       </div>
     </>
   );

@@ -1,9 +1,10 @@
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { Button } from "@/components/ui/button";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { PalettePicker } from "@/components/palette-picker";
+import { routing } from "@/i18n/routing";
+import { localeConfig } from "@/lib/i18n/config";
 
 const GITHUB_URL = "https://github.com/ShuttleLab";
 
@@ -12,11 +13,6 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
-
-  const toggleLocale = () => {
-    const nextLocale = locale === "zh" ? "en" : "zh";
-    router.replace(pathname, { locale: nextLocale });
-  };
 
   return (
     <header className="bg-card border-b shadow-sm">
@@ -84,15 +80,18 @@ export default function Header() {
               </svg>
             </a>
             <PalettePicker direction="down" />
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              className="text-xs h-8"
-              onClick={toggleLocale}
+            <select
+              aria-label="Language"
+              value={locale}
+              onChange={(e) => router.replace(pathname, { locale: e.target.value })}
+              className="h-8 rounded-md border bg-card px-2 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
             >
-              {locale === "zh" ? "中/EN" : "EN/中"}
-            </Button>
+              {routing.locales.map((l) => (
+                <option key={l} value={l}>
+                  {localeConfig[l]?.nativeName ?? l}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>

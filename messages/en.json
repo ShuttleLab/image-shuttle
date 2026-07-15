@@ -434,5 +434,19 @@
     "pickIcon": "Select at least one icon size.",
     "downloaded": "Downloaded ({size})",
     "zipReady": "Exported {count} icons as ZIP"
+  },
+  "toolLanding": {
+    "howTo": "How to use",
+    "faq": "Frequently Asked Questions",
+    "cta": "Try it now — free",
+    "guide": "Open the tool →"
+  },
+  "toolsIndex": {
+    "metaTitle": "Image Tools — Free Online Image Utilities | Image Shuttle",
+    "metaDescription": "All of Image Shuttle’s free image tools — compress JPG/PNG, convert to WebP/AVIF, resize, batch-compress and SVG to PNG — all in your browser.",
+    "title": "Image Tools",
+    "intro": "Every free image tool from Image Shuttle — all running locally in your browser, with no upload and no sign-up.",
+    "svgTitle": "SVG to PNG",
+    "svgDesc": "Convert SVG to crisp PNG — custom sizes, icon sets, transparent backgrounds."
   }
 }

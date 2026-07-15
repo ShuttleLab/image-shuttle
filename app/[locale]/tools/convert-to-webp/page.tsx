@@ -1,24 +1,23 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { ToolThinZh } from "@/components/tool-thin-zh";
+import { ToolLanding } from "@/components/tool-landing";
+import { getToolContent } from "@/lib/tool-content";
+import { canonicalUrl, hreflangAlternates } from "@/lib/seo";
 
 const PATH = "/tools/convert-to-webp";
+const SLUG = "convert-to-webp" as const;
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const zh = locale === "zh";
+  const content = getToolContent(locale, SLUG);
   return {
-    title: zh
-      ? "图片转 WebP — 免费在线转换器 | Image Shuttle"
-      : "Convert Image to WebP — Free Online Converter | Image Shuttle",
-    description: zh
-      ? "免费在线把 JPG、PNG、BMP、GIF 转成 WebP，体积比 JPG 小 25–35% 而画质相当。无需上传，全程在浏览器本地完成，100% 私密。"
-      : "Convert JPG, PNG, BMP, and GIF images to WebP format online for free. Get 25-35% smaller files than JPG with the same visual quality. No upload, 100% private.",
+    title: content.metaTitle,
+    description: content.metaDescription,
     alternates: {
-      canonical: zh ? `/zh${PATH}` : PATH,
-      languages: { en: PATH, zh: `/zh${PATH}`, "x-default": PATH },
+      canonical: canonicalUrl(locale, PATH),
+      languages: hreflangAlternates(PATH),
     },
   };
 }
@@ -28,10 +27,10 @@ export default async function ConvertToWebpPage({ params }: Props) {
   setRequestLocale(locale);
   if (locale !== "en") {
     return (
-      <ToolThinZh
-        title="图片转 WebP（免费在线）"
-        lead="把 JPG、PNG、BMP、GIF 转成 WebP，体积通常比 JPG 小 25–35%，画质相当。全程在你的浏览器本地完成，图片不上传任何服务器。"
-        guideHref={PATH}
+      <ToolLanding
+        locale={locale}
+        slug={SLUG}
+        content={getToolContent(locale, SLUG)}
       />
     );
   }

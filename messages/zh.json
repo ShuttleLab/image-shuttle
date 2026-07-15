@@ -434,5 +434,19 @@
     "pickIcon": "请至少选择一个图标尺寸。",
     "downloaded": "已下载（{size}）",
     "zipReady": "已导出 {count} 个图标为 ZIP"
+  },
+  "toolLanding": {
+    "howTo": "使用方法",
+    "faq": "常见问题",
+    "cta": "立即免费使用",
+    "guide": "打开工具 →"
+  },
+  "toolsIndex": {
+    "metaTitle": "图片工具 — 免费在线图片处理 | Image Shuttle",
+    "metaDescription": "Image Shuttle 的全部免费图片工具:压缩 JPG/PNG、转 WebP/AVIF、调整尺寸、批量压缩、SVG 转 PNG——全部在你的浏览器本地完成。",
+    "title": "图片工具",
+    "intro": "Image Shuttle 的全部免费图片工具,全部在你的浏览器本地完成,无需上传、无需注册。",
+    "svgTitle": "SVG 转 PNG",
+    "svgDesc": "把 SVG 转成清晰 PNG,自定义尺寸、图标全套、透明背景。"
   }
 }

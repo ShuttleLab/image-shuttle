@@ -1,24 +1,23 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { ToolThinZh } from "@/components/tool-thin-zh";
+import { ToolLanding } from "@/components/tool-landing";
+import { getToolContent } from "@/lib/tool-content";
+import { canonicalUrl, hreflangAlternates } from "@/lib/seo";
 
 const PATH = "/tools/resize-image";
+const SLUG = "resize-image" as const;
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const zh = locale === "zh";
+  const content = getToolContent(locale, SLUG);
   return {
-    title: zh
-      ? "在线调整图片尺寸 — 免费图片缩放器 | Image Shuttle"
-      : "Resize Image Online — Free Image Resizer | Image Shuttle",
-    description: zh
-      ? "免费在线调整图片尺寸：按像素或百分比缩放，并可锁定宽高比。支持 JPG、PNG、WebP 等。无需上传，100% 私密。"
-      : "Resize images online for free. Change pixel dimensions or scale by percentage while maintaining aspect ratio. Supports JPG, PNG, WebP, and more. No upload, 100% private.",
+    title: content.metaTitle,
+    description: content.metaDescription,
     alternates: {
-      canonical: zh ? `/zh${PATH}` : PATH,
-      languages: { en: PATH, zh: `/zh${PATH}`, "x-default": PATH },
+      canonical: canonicalUrl(locale, PATH),
+      languages: hreflangAlternates(PATH),
     },
   };
 }
@@ -28,10 +27,10 @@ export default async function ResizeImagePage({ params }: Props) {
   setRequestLocale(locale);
   if (locale !== "en") {
     return (
-      <ToolThinZh
-        title="在线调整图片尺寸（免费）"
-        lead="按像素或百分比调整图片尺寸，可锁定宽高比。支持 JPG、PNG、WebP 等格式。全程在你的浏览器本地完成，图片不上传任何服务器。"
-        guideHref={PATH}
+      <ToolLanding
+        locale={locale}
+        slug={SLUG}
+        content={getToolContent(locale, SLUG)}
       />
     );
   }
