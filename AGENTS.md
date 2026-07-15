@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Image Shuttle — a free, browser-based image studio: compression/conversion, FotoJet-style photo editor (/editor), collage maker (/collage) and design studio (/design). Built with Next.js 16 + React 19, deployed to Cloudflare Workers via OpenNext.
+Image Shuttle — a free, browser-based image studio: compression/conversion, FotoJet-style photo editor (/editor), collage maker (/collage) and design studio (/design). Built with Next.js 16 + React 19, deployed to Cloudflare Workers Static Assets as a static export (`output: "export"`).
 
 ## Commands
 
@@ -75,10 +75,10 @@ Image Shuttle — a free, browser-based image studio: compression/conversion, Fo
 
 ## Cloudflare Deployment
 
-- OpenNext adapter (`@opennextjs/cloudflare`)
-- `wrangler.toml` configures Worker + static assets
-- No Edge Runtime (not supported by OpenNext)
-- No middleware (incompatible with OpenNext)
+- Static export (`output: "export"` + `trailingSlash`) → Cloudflare Workers Static Assets; **no Worker/server code**
+- `wrangler.toml` serves `./out` via `[assets]`
+- `scripts/postbuild.mjs` promotes `out/en` → root and patches per-locale `<html lang>` (+ `dir="rtl"` for ar)
+- No server runtime, no middleware — locale routing is via `[locale]` + `generateStaticParams`; `public/_redirects` sends `/en` → `/`
 - `images.unoptimized: true` in next.config.ts
 
 ## SEO

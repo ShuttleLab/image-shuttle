@@ -52,7 +52,7 @@
 - **Toasts**: [Sonner](https://sonner.emilkowal.ski/)
 - **Fonts**: [Geist](https://vercel.com/font) + Geist Mono
 - **PWA**: Custom Service Worker with offline precaching (including WASM modules)
-- **Deployment**: [Cloudflare Workers](https://workers.cloudflare.com/) via [OpenNext](https://opennext.js.org/)
+- **Deployment**: [Cloudflare Workers](https://workers.cloudflare.com/) Static Assets — static export (`output: "export"`)
 
 ## Getting Started
 
@@ -91,12 +91,12 @@
 | `npm run dev` | Start the Next.js dev server |
 | `npm run build` | Compile and type-check for production |
 | `npm run lint` | Run ESLint |
-| `npm run preview` | Build with OpenNext and run locally via Wrangler |
-| `npm run deploy` | Build with OpenNext and deploy to Cloudflare Workers |
+| `npm run preview` | Build the static export and serve `out/` locally |
+| `npm run deploy` | Build the static export and deploy to Cloudflare Workers |
 
 ## Deployment
 
-Image Shuttle is deployed on Cloudflare Workers using OpenNext.
+Image Shuttle is deployed to Cloudflare Workers Static Assets as a static export (`output: "export"`).
 
 ```bash
 npm run deploy
