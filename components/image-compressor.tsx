@@ -171,10 +171,15 @@ export function ImageCompressor() {
       {images.length > 0 && (
         <div className="flex flex-wrap items-center gap-3">
           {hasPending && (
-            <Button onClick={processImages} disabled={isProcessing}>
+            <Button
+              size="lg"
+              className="h-12 px-7 text-base font-semibold"
+              onClick={processImages}
+              disabled={isProcessing}
+            >
               {isProcessing ? (
                 <>
-                  <Loader2 className="size-4 mr-2 animate-spin" />
+                  <Loader2 className="size-5 mr-2 animate-spin" />
                   {t("batchProgress", {
                     current: progress.completed,
                     total: progress.total,
@@ -187,19 +192,34 @@ export function ImageCompressor() {
           )}
 
           {hasCompleted && (
-            <Button variant="outline" onClick={handleDownloadAll}>
-              <Download className="size-4 mr-2" />
+            <Button
+              size="lg"
+              variant={hasPending ? "outline" : "default"}
+              className="h-12 px-6 text-base font-semibold"
+              onClick={handleDownloadAll}
+            >
+              <Download className="size-5 mr-2" />
               {t("downloadAll")} ({completedCount})
             </Button>
           )}
 
-          <Button variant="ghost" onClick={() => document.querySelector<HTMLInputElement>('input[type="file"]')?.click()}>
-            <Plus className="size-4 mr-2" />
+          <Button
+            size="lg"
+            variant="outline"
+            className="h-12 px-6 text-base"
+            onClick={() => document.querySelector<HTMLInputElement>('input[type="file"]')?.click()}
+          >
+            <Plus className="size-5 mr-2" />
             {t("addMore")}
           </Button>
 
-          <Button variant="ghost" className="text-destructive" onClick={handleClearAll}>
-            <Trash2 className="size-4 mr-2" />
+          <Button
+            size="lg"
+            variant="ghost"
+            className="h-12 px-6 text-base text-destructive"
+            onClick={handleClearAll}
+          >
+            <Trash2 className="size-5 mr-2" />
             {t("clearAll")}
           </Button>
         </div>
@@ -249,10 +269,11 @@ export function ImageCompressor() {
                   />
                   <div className="flex justify-end">
                     <Button
-                      size="sm"
+                      size="lg"
+                      className="h-12 px-6 text-base font-semibold"
                       onClick={() => handleDownload(image)}
                     >
-                      <Download className="size-4 mr-2" />
+                      <Download className="size-5 mr-2" />
                       {t("downloadSingle")}
                     </Button>
                   </div>
@@ -290,11 +311,11 @@ export function ImageCompressor() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="size-8"
+                          className="size-10 text-destructive"
                           onClick={() => handleRemoveImage(image.id)}
                           aria-label={t("removeImage")}
                         >
-                          <Trash2 className="size-4" />
+                          <Trash2 className="size-5" />
                         </Button>
                       </div>
                     </div>
