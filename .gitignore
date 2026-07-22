@@ -45,3 +45,4 @@ MIMO_*.md
 lighthouse-report.*
 .open-next/
 .wrangler/
+*.md
